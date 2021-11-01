@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Add Coupons</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ul>
+                <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">                
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="https://ecom.hossainazad.com/admin/addNewCoupons" accept-charset="UTF-8" class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden" value="xLGHZIGIwEVacnBn3Srq3DUL43jf017iBuCvq1Xg">
+    
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Coupon</label>
+        <div class="col-sm-10 col-md-4">
+            <input class="form-control field-validate" id="code" name="code" type="text" value="">
+            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Please enter coupon code.</span>
+        
+            <span class="help-block hidden">Please enter coupon code.</span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Description (Optional)</label>
+        <div class="col-sm-10 col-md-4">
+            <textarea class="form-control" rows="5" id="description" name="description" cols="50"></textarea>
+            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+            Enter Description.</span>
+        </div>
+    </div>	
+    
+    
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label"> 	Coupon Type  </label>
+        <div class="col-sm-10 col-md-4">
+            <select name="coupon_type" class="form-control">
+                <option value="regular" selected="">Regular</option>
+                <option value="new_user">New User</option>
+            </select>
+            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+            Coupon Type </span>
+        
+        </div>
+    </div>
+   
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Discount Type  </label>
+        <div class="col-sm-10 col-md-4">
+            <select name="discount_type" class="form-control">
+                <option value="fixed_cart" selected="">Cart Discount</option>
+                <option value="percent">Cart % Discount</option>
+                <option value="fixed_product">Product Discount</option>
+                <option value="percent_product">Product % Discount</option>
+            </select>
+            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+            Determines the type of discount that will be applied. Options: percent, fixed cart and fixed product. Default is fixed cart.</span>
+        
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Coupon Amount 
+        </label>
+        <div class="col-sm-10 col-md-4">
+            <input class="form-control" id="amount" name="amount" type="text" value="0"> 
+            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+            The amount of discount.</span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Allow Free Shipping</label>
+        <div class="col-sm-10 col-md-4" style="padding-top: 7px;">
+            <label style="margin-bottom:0" class="">
+                <div class="icheckbox_minimal-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input class="minimal" name="free_shipping" type="checkbox" value="1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+            </label>
+                &nbsp; Check this box if the coupon grants free shipping. A free shipping method must be enabled in your shipping zone and be set to require "a valid free shipping coupon" (see the "Free Shipping Requires" setting).
+                
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Coupon Expiry Date</label>
+        <div class="col-sm-10 col-md-4">
+            <input class="form-control field-validate datepicker" id="datepicker" readonly="readonly" name="expiry_date" type="text" value="">
+            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Please enter expiry date.</span>
+            <span class="help-block hidden">Please enter expiry date.</span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Minimum Spend
+        </label>
+        <div class="col-sm-10 col-md-4">
+            <input class="form-control" placeholder="No Minimum" id="minimum_amount" name="minimum_amount" type="text" value="">
+        <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Minimum order amount that needs to be in the cart before coupon applies.</span>
+        </div>
+    </div>
+    
+        <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label"> Coupon Quantity Limit
+        </label>
+        <div class="col-sm-10 col-md-4">
+            <input class="form-control" placeholder="coupon quantity limilt" name="coupon_quantity_limilt" type="text" value="">
+        <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">coupon quantity limilt</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Individual Use Only </label>
+        <div class="col-sm-10 col-md-4" style="padding-top: 7px; line-height: 22px;">
+            <label style="margin-bottom: 0px;">
+                <div class="icheckbox_minimal-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input class="minimal" name="individual_use" type="checkbox" value="1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+            </label>
+                &nbsp; Check this box if the coupon cannot be used in conjunction with other coupons.
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Exclude Sale Items</label>
+        <div class="col-sm-10 col-md-4" style="padding-top: 7px; line-height: 22px;">
+            <label style="margin-bottom: 0px;">
+                <div class="icheckbox_minimal-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input class="minimal" name="exclude_sale_items" type="checkbox" value="1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+            </label>
+                &nbsp; Check this box if the coupon should not apply to items on sale. Per-item coupons will only work if the item is not on sale. Per-cart coupons will only work if there are no sale items in the cart.
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Products</label>
+        <div class="col-sm-10 col-md-4 couponProdcuts">
+            <select name="product_ids[]" multiple="" class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                                            <option value="3">CLASSIC FIT COTTON POLO SHIRT </option>
+                                                                     </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 330px;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">List of product the coupon can be used on.</span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Exclude Products</label>
+        <div class="col-sm-10 col-md-4 couponProdcuts">
+            <select name="exclude_product_ids[]" multiple="" class="form-control select2  select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                                            <option value="3">CLASSIC FIT COTTON POLO SHIRT </option>
+                                                            
+                                                            <option value="2676">আপন টমেটো সস (জার) </option>
+                                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 330px;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">List of product the coupon cannot be used on.</span>                
+        </div>
+    </div>
+    
+
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Usage Limit Per Coupon </label>
+        <div class="col-sm-10 col-md-4">
+            <input class="form-control" placeholder="Unlimited" id="usage_limit" required="" name="usage_limit" type="number" value="">
+            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">How many times the coupon can be used in total.</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name" class="col-sm-2 col-md-3 control-label">Usage Limit Per User</label>
+        <div class="col-sm-10 col-md-4">
+            <input class="form-control" placeholder="Unlimited" id="usage_limit_per_user" required="" name="usage_limit_per_user" type="number" value="">
+            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">How many times the coupon can be used per customer</span>
+        
+        </div>
+    </div>
+                            
+    <!-- /.box-body -->
+    <div class="box-footer text-center">
+        <button type="submit" class="btn btn-primary">Add Coupons</button>
+        <a href="https://ecom.hossainazad.com/admin/listingCoupons" type="button" class="btn btn-default">Back</a>
+    </div>
+        <!-- /.box-footer -->
+    </form>
+
+
+
+
+    
+</section>
+
+{% endblock main_content %}
