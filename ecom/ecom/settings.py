@@ -35,6 +35,13 @@ INSTALLED_APPS = [
     'customers',
     'orders',
     'packages_subscriptions',
+    'shipping_methods',
+    'payment_methods',
+    'banners',
+    'user_subscription',
+    'special_product',
+    'flash_deal_product',
+    'category_settings',
    
 
 ]

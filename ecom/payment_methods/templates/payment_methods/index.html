@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Payment Methods</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ul>
+                <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">                
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="https://ecom.hossainazad.com/admin/updatePaymentSetting" accept-charset="UTF-8" class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden" value="9CGDqjK9IYDm2aXD2eMO9pyCnFsgEbTjEsh0EghO">
+    
+        <div class="form-group">
+            <label for="shippingEnvironment" class="col-sm-2 col-md-3 control-label" style="">Payment Metods</label>
+            <div class="col-sm-10 col-md-4">
+                <label class=" control-label">
+                        <input type="checkbox" name="brantree_active" value="1" class="checkboxess"> &nbsp;Braintree
+                </label><br>
+
+                <label class=" control-label">
+                        <input type="checkbox" name="stripe_active" value="1" class="checkboxess"> &nbsp;Stripe
+                </label><br>
+
+                
+                <label class=" control-label">
+                        <input type="checkbox" name="cash_on_delivery" value="1" class="checkboxess " checked=""> &nbsp;Cash On Delivery
+                </label><br>
+
+                
+                <label class=" control-label">
+                        <input type="checkbox" name="paypal_status" value="1" class="checkboxess "> &nbsp;Paypal
+                </label>
+                
+            {% comment %} <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Choose Payment methods.</span> {% endcomment %}
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="shippingEnvironment" class="col-sm-2 col-md-3 control-label" style="">Braintree Account Type</label>
+            <div class="col-sm-10 col-md-4">
+                <label class=" control-label">
+                        <div class="iradio_flat-green checked" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="radio" name="braintree_enviroment" value="0" class="flat-red" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> &nbsp;Sanbox
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <label class=" control-label">
+                        <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="radio" name="braintree_enviroment" value="1" class="flat-red" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>  &nbsp;Live
+                </label>
+                {% comment %} <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Choose Braintree environment Sanbox or Live.</span> {% endcomment %}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Braintree</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="braintree_name" name="braintree_name" type="text" value="Braintree">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Braintre payment Merchant ID.</span>
+            </div>
+        </div>	
+        
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Merchant ID</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="braintree_merchant_id" name="braintree_merchant_id" type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Braintre payment Merchant ID.</span>
+            </div>
+        </div>						
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Public Key</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="braintree_public_key" name="braintree_public_key" type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Braintre payment Public Key.</span>
+            </div>
+        </div>	
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Private Key</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="braintree_private_key" name="braintree_private_key" type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Braintre payment Private Key.</span>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="shippingEnvironment" class="col-sm-2 col-md-3 control-label" style="">Stripe Enviroment</label>
+            <div class="col-sm-10 col-md-4">
+                <label class=" control-label">
+                        <div class="iradio_flat-green checked" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="radio" name="stripe_enviroment" value="0" class="flat-red" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> &nbsp;Sanbox
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <label class=" control-label">
+                        <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="radio" name="stripe_enviroment" value="1" class="flat-red" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>  &nbsp;Live
+                </label>
+                
+                {% comment %} <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Choose stripe environment Sanbox or Live.</span> {% endcomment %}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Stripe</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="stripe_name" name="stripe_name" type="text" value="Stripe">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Stripe</span>
+            </div>
+        </div>	
+        
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Secret Key</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="secret_key" name="secret_key" type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter stripe secret key.</span>
+            </div>
+        </div>	
+                                
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Key </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="publishable_key" name="publishable_key" type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter stripe publishable key.</span>
+            </div>
+        </div>	
+        
+        <hr>
+        
+        <div class="form-group">
+            <label for="shippingEnvironment" class="col-sm-2 col-md-3 control-label" style="">Paypal Enviroment</label>
+            <div class="col-sm-10 col-md-4">
+                <label class=" control-label">
+                        <div class="iradio_flat-green checked" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="radio" name="paypal_enviroment" value="0" class="flat-red" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> &nbsp;Sanbox
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <label class=" control-label">
+                        <div class="iradio_flat-green" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="radio" name="paypal_enviroment" value="1" class="flat-red" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>  &nbsp;Live
+                </label>
+                
+                {% comment %} <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Choose paypal environment Sanbox or Live.</span> {% endcomment %}
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Paypal</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="paypal_name" name="paypal_name" type="text" value="Paypal">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter paypal name.</span>
+            </div>
+        </div>	
+        
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Paypal ID</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="paypal_id" name="paypal_id" type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter paypal id for transaction.</span>
+            </div>
+        </div>	
+        
+        <hr>
+        
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Cash On Delivery</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="cod_name" name="cod_name" type="text" value="Cash On Delivery">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Cash on delivery name.</span>
+            </div>
+        </div>	
+        <hr>
+        
+        <div class="form-group">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Payment in Currency</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="payment_currency" name="payment_currency" type="text" value="USD">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Please enter your payment currency name e.g: USD.</span>
+            </div>
+        </div>	
+        
+                    
+                                            
+        <!-- /.box-body -->
+        <div class="box-footer text-center">
+            <button type="submit" class="btn btn-primary payment-checkbox">Update </button>
+            <a href="https://ecom.hossainazad.com/admin/dashboard/this_month" type="button" class="btn btn-default">Back</a>
+        </div>
+            <!-- /.box-footer -->
+        </form> 
+        </section>
+
+{% endblock main_content %}

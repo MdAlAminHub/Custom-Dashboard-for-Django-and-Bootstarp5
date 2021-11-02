@@ -12,6 +12,13 @@ urlpatterns = [
     path('home/', include('customers.urls')),
     path('home/', include('orders.urls')),
     path('home/', include('packages_subscriptions.urls')),
+    path('home/', include('shipping_methods.urls')),
+    path('home/', include('payment_methods.urls')),
+    path('home/', include('banners.urls')),
+    path('home/', include('user_subscription.urls')),
+    path('home/', include('special_product.urls')),
+    path('home/', include('flash_deal_product.urls')),
+    path('home/', include('category_settings.urls')),
     
 
 
