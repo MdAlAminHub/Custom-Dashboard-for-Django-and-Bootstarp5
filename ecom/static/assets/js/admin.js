@@ -205,7 +205,7 @@ $.AdminAero.navbar = {
 $.AdminAero.select = {
     activate: function() {
         if ($.fn.selectpicker) {
-            $('select:not(.ms)').selectpicker();
+            // $('select:not(.ms)').selectpicker();
         }
     }
 }

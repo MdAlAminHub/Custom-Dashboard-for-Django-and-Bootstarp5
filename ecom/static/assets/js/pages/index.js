@@ -7,7 +7,9 @@
 $(function() {
     "use strict";
     initSparkline();
-    initC3Chart();    
+    initC3Chart();
+    
+    $('.select-2').select2();
 });
 
 function initSparkline() {

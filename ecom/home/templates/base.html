@@ -10,9 +10,10 @@
     <title>:: Aero Bootstrap4 Admin :: Home</title>
     <link rel="icon" href="{% static 'favicon.ico'%}" type="{% static 'image/x-icon'%}"> <!-- Favicon-->
     <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css' %}"/>
-    <link rel="stylesheet" href="{% static 'assets/plugins/charts-c3/plugin.css'%}"/>
+    <link rel="stylesheet" href="{% static 'assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/plugins/charts-c3/plugin.css'%}" />
     <link rel="stylesheet" href="{% static 'assets/plugins/morrisjs/morris.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/plugins/select2/select2.min.css'%}" />
     <link rel="stylesheet" href="{% static 'assets/css/style.min.css'%}">
 
     {% block custom_css %} {% endblock custom_css %}
@@ -20,10 +21,12 @@
 
 <body class="theme-blush">
 
-    {% comment %} <!-- Page Loader -->
+    {% comment %}
+    <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
-            <div class="m-t-30"><img class="zmdi-hc-spin" src="{% static 'assets/images/loader.svg' %}" width="48" height="48" alt="Aero"></div>
+            <div class="m-t-30"><img class="zmdi-hc-spin" src="{% static 'assets/images/loader.svg' %}" width="48"
+                    height="48" alt="Aero"></div>
             <p>Please wait...</p>
         </div>
     </div>
@@ -35,8 +38,8 @@
     <div id="search">
         <button id="close" type="button" class="close btn btn-primary btn-icon btn-icon-mini btn-round">x</button>
         <form>
-        <input type="search" value="" placeholder="Search..." />
-        <button type="submit" class="btn btn-primary">Search</button>
+            <input type="search" value="" placeholder="Search..." />
+            <button type="submit" class="btn btn-primary">Search</button>
         </form>
     </div>
 
@@ -47,16 +50,15 @@
 
     {% block main_content %}{% endblock main_content %}
 
-
-
-
-
-    <script src="{% static 'assets/bundles/libscripts.bundle.js'%}"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) --> 
-    <script src="{% static 'assets/bundles/vendorscripts.bundle.js'%}"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+    <script src="{% static 'assets/bundles/libscripts.bundle.js'%}"></script>
+    <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+    <script src="{% static 'assets/bundles/vendorscripts.bundle.js'%}"></script>
+    <!-- slimscroll, waves Scripts Plugin Js -->
 
     <script src="{% static 'assets/bundles/jvectormap.bundle.js'%}"></script> <!-- JVectorMap Plugin Js -->
     <script src="{% static 'assets/bundles/sparkline.bundle.js'%}"></script> <!-- Sparkline Plugin Js -->
     <script src="{% static 'assets/bundles/c3.bundle.js'%}"></script>
+    <script src="{% static 'assets/plugins/select2/select2.min.js'%}"></script>
 
     <script src="{% static 'assets/bundles/mainscripts.bundle.js'%}"></script>
     <script src="{% static 'assets/js/pages/index.js'%}"></script>
@@ -65,5 +67,5 @@
 
 
 </body>
-</html>
 
+</html>
