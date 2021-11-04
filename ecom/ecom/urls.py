@@ -5,7 +5,6 @@ urlpatterns = [
     path('home/', include('home.urls')),
     path('home/', include('brand.urls')),
     path('home/', include('manufacturer.urls')),
-    path('home/', include('category.urls')),
     path('home/', include('languages.urls')),
     path('home/', include('pages.urls')),
     path('home/', include('coupons.urls')),
@@ -19,6 +18,7 @@ urlpatterns = [
     path('home/', include('special_product.urls')),
     path('home/', include('flash_deal_product.urls')),
     path('home/', include('category_settings.urls')),
+    path('home/', include('categories.urls')),
     
 
 

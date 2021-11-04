@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'home',
     'brand',
     'manufacturer',
-    'category',
     'languages',
     'pages',
     'coupons',
@@ -42,6 +41,7 @@ INSTALLED_APPS = [
     'special_product',
     'flash_deal_product',
     'category_settings',
+    'categories',
    
 
 ]
