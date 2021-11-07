@@ -42,6 +42,15 @@ INSTALLED_APPS = [
     'flash_deal_product',
     'category_settings',
     'categories',
+    'products',
+    'packages',
+    'news',
+    'tax_location',
+    'notifications',
+    'reports',
+    'feature',
+    'site_settings',
+    
    
 
 ]

@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Add Packages Type</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active">Package type</li>
+                </ul>
+                <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
+                        class="zmdi zmdi-sort-amount-desc"></i></button>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="https:///admin/packages-type" accept-charset="UTF-8"
+        enctype="multipart/form-data" class="form-horizontal"><input name="_token" type="hidden"
+            value="">
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Package Type Name </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="text" name="name" class="form-control field-validate" required="">
+                <span class="help-block"
+                    style="font-weight: normal; font-size: 11px; margin-bottom: 0;">labels.PackageType </span>
+
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Package</label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control field-validate" name="package_id">
+                    <option value="16">Family</option>
+                    <option value="17">Corporate</option>
+                    <option value="18">Other</option>
+                </select>
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;"> Package
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Cashback </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="hidden" name="package_type_attribute_id[]" value="8" class="form-control field-validate"
+                    required="">
+
+                <div class="package-type-attribute-inputs">
+                    <input type="text" name="single[8]" class="form-control field-validate" required="">
+                    <select class="form-control" name="single_param[8]" placeholder="Select option">
+                        <option value="৳" checked="">৳</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+
+
+
+
+
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">Cashback</span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> NB Card Limit </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="hidden" name="package_type_attribute_id[]" value="9" class="form-control field-validate"
+                    required="">
+
+                <div class="package-type-attribute-inputs">
+                    <input type="text" name="single[9]" class="form-control field-validate" required="">
+                    <select class="form-control" name="single_param[9]" placeholder="Select option">
+                        <option value="৳" checked="">৳</option>
+                        <option value="%">%</option>
+                    </select>
+                </div>
+
+
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">NB Card
+                    Limit</span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Monthly Target </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="hidden" name="package_type_attribute_id[]" value="10" class="form-control field-validate"
+                    required="">
+
+
+                <div class="package-type-attribute-inputs">
+                    <input type="text" placeholder="From" name="range_from[10]" class="form-control field-validate"
+                        required="">
+                    <input type="text" placeholder="To" name="range_to[10]" class="form-control field-validate"
+                        required="">
+                </div>
+
+
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">Monthly
+                    Target</span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Free Delivery </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="hidden" name="package_type_attribute_id[]" value="11" class="form-control field-validate"
+                    required="">
+
+                <div class="package-type-attribute-label-input">
+                    <label class="radio-inline"><input type="radio" value="Yes" name="yes_no[11]" checked="">Yes</label>
+                    <label class="radio-inline"><input type="radio" value="No" name="yes_no[11]">No</label>
+                </div>
+
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">Free
+                    Delivery</span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Pre Order </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="hidden" name="package_type_attribute_id[]" value="12" class="form-control field-validate"
+                    required="">
+
+                <div class="package-type-attribute-label-input">
+                    <label class="radio-inline"><input type="radio" value="Yes" name="yes_no[12]" checked="">Yes</label>
+                    <label class="radio-inline"><input type="radio" value="No" name="yes_no[12]">No</label>
+                </div>
+
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">Pre
+                    Order</span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> MSFS Pay </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="hidden" name="package_type_attribute_id[]" value="13" class="form-control field-validate"
+                    required="">
+
+
+                <div class="package-type-attribute-label-input">
+                    <label class="radio-inline"><input type="radio" value="Yes" name="yes_no[13]" checked="">Yes</label>
+                    <label class="radio-inline"><input type="radio" value="No" name="yes_no[13]">No</label>
+                </div>
+
+
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">MSFS Pay</span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Bank Pay </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="hidden" name="package_type_attribute_id[]" value="14" class="form-control field-validate"
+                    required="">
+
+                <div class="package-type-attribute-label-input">
+                    <label class="radio-inline"><input type="radio" value="Yes" name="yes_no[14]" checked="">Yes</label>
+                    <label class="radio-inline"><input type="radio" value="No" name="yes_no[14]">No</label>
+                </div>
+
+
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">Bank Pay</span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Product Return </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="hidden" name="package_type_attribute_id[]" value="15" class="form-control field-validate"
+                    required="">
+
+
+                <div class="package-type-attribute-label-input">
+                    <label class="radio-inline"><input type="radio" value="Yes" name="yes_no[15]" checked="">Yes</label>
+                    <label class="radio-inline"><input type="radio" value="No" name="yes_no[15]">No</label>
+                </div>
+
+
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">Product
+                    Return</span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Delivery Priority </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="hidden" name="package_type_attribute_id[]" value="17" class="form-control field-validate"
+                    required="">
+
+                <div class="package-type-attribute-inputs">
+                    <input type="text" name="text_type_value[17]" class="form-control field-validate" required="">
+                </div>
+
+
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">Delivery
+                    Priority</span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Image </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="file" name="logo" required="">
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;"> Upload news
+                    image</span>
+                <br>
+            </div>
+        </div>
+
+        <!-- /.box-body -->
+        <div class="box-footer text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            
+        </div>
+        <!-- /.box-footer -->
+    </form>
+
+
+</section>
+
+{% endblock main_content %}

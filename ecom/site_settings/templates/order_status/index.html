@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Add Order Status</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ul>
+                <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
+                        class="zmdi zmdi-sort-amount-desc"></i></button>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="https://admin/addNewOrderStatus" accept-charset="UTF-8"
+        class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden"
+            value="">
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Language</label>
+            <div class="col-sm-10 col-md-4">
+                <select name="language_id" class="form-control">
+                    <option value="1">English</option>
+                    <option value="2">Bangla</option>
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose status language.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Orders Status</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="orders_status_name" name="orders_status_name" type="text"
+                    value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter order status name.</span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer text-right">
+            <div class="col-sm-offset-2 col-md-offset-3 col-sm-10 col-md-4">
+                <button type="submit" class="btn btn-primary">Add Status</button>
+                <a href="listingOrderStatus" type="button" class="btn btn-default">Back</a>
+            </div>
+        </div>
+        <!-- /.box-footer -->
+    </form>
+</section>
+
+{% endblock main_content %}

@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Add Products</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active">Lebels.AddNewProduct</li>
+                </ul>
+                <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
+                        class="zmdi zmdi-sort-amount-desc"></i></button>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="https://admin/addNewProduct" accept-charset="UTF-8"
+        class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden" value="">
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Category</label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control field-validate" id="category_id" name="category_id"
+                    onchange="getSubCategory();">
+                    <option value="">Category</option>
+                    <option value="2">Meat, Fish &amp; Egg</option>
+                    <option value="3">Cooking Essential</option>
+                    <option value="4">General Grocery</option>
+                    <option value="5">Fruits &amp; Vegetables</option>
+                    <option value="6">Home Care &amp; Cleaning Utilities</option>
+                    <option value="38">Dairy &amp; Bakery</option>
+                    <option value="39">Beverages</option>
+                    <option value="40">Baby Products</option>
+                    <option value="41">Personal Care</option>
+                    <option value="42">Stationary &amp; Health Care</option>
+                    <option value="43">Household Essentials</option>
+                    <option value="44">Flowers &amp; Gift Items</option>
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose category to show sub category.</span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Sub Category</label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control field-validate" name="sub_category_id" id="sub_category_id">
+                    <option value="">Choose Sub Category</option>
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose sub category to associate with product</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Manufacturers </label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control" name="manufacturers_id">
+                    <option value="7">NITTABAZAR</option>
+                </select><span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose product manufacturer/vender. You can add manufacturers from Manufacturers link.</span>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Special</label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control" onchange="showSpecial()" name="isSpecial" id="isSpecial">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose if this is in deals/special products. Special products belongs to deals.</span>
+            </div>
+        </div>
+
+        <div class="special-container" style="display: none;">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 col-md-3 control-label">Special Price</label>
+                <div class="col-sm-10 col-md-4">
+                    <input class="form-control" type="text" name="specials_new_products_price" id="special-price"
+                        value="">
+                    <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                        Special products price of deals. Please enter a numberic value.</span>
+                    <span class="help-block hidden">Please enter a numberic value.</span>
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <label for="name" class="col-sm-2 col-md-3 control-label">Expiry Date</label>
+
+                <div class="col-sm-10 col-md-4">
+                    <input class="form-control datepicker" type="text" name="expires_date" id="expiry-date" value="">
+                    <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                        When special products will be expired?
+                    </span>
+                    <span class="help-block hidden">This field is required.</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-md-3 control-label">Status</label>
+                <div class="col-sm-10 col-md-4">
+                    <select class="form-control" name="status">
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                    <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                        Do you want to active special product now? Acitve will show into deals and In Active will
+                        eliminate the product from deals.</span>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Product Name (English)</label>
+            <div class="col-sm-10 col-md-4">
+                <input type="text" name="products_name_1" class="form-control field-validate">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter Product Name In English </span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Description (English)</label>
+            <div class="col-sm-10 col-md-4">
+                <textarea class="form-control" rows="5" id="description" name="description" cols="50"></textarea>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter Description.</span>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Product Name (Bangla)</label>
+            <div class="col-sm-10 col-md-4">
+                <input type="text" name="products_name_2" class="form-control field-validate">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter Product Name In Bangla </span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Description (Bangla)</label>
+            <div class="col-sm-10 col-md-4">
+                <textarea class="form-control" rows="5" id="description" name="description" cols="50"></textarea>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter Description.</span>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Tax Class </label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control field-validate" name="tax_class_id">
+                    <option selected="">Select Tax Class</option>
+                    <option value="1">Sale Tax</option>
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose tax class in which this product belongs. You can add them from Tax / Location link.
+                </span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Products Price</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control number-validate" id="products_price" name="products_price" type="text"
+                    value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Please enter only numreic value.
+                </span>
+
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Products Weight</label>
+            <div class="col-sm-10 col-md-3">
+                <input class="form-control number-validate" id="products_weight" name="products_weight" type="text"
+                    value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Please enter only numreic value.
+                </span>
+            </div>
+            <div class="col-sm-10 col-md-1" style="padding-left: 0;">
+                <select class="form-control" name="products_weight_unit">
+                    <option value="g">G</option>
+                    <option value="kg">KG</option>
+                    <option value="piece">Pcs</option>
+                    <option value="liter ">Liter </option>
+                    <option value="ml ">Ml</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Products Model</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="products_model" name="products_model" type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter product model if exist (optional).
+                </span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Products Quantity </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control number-validate" id="products_quantity" name="products_quantity" type="text"
+                    value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Please enter a numreic value.
+                </span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Offer Quantity Limit
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" placeholder="offer quantity limilt" name="offer_quantity_limilt" type="text"
+                    value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">offer quantity
+                    limilt</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Quantity Low Limit
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="low_limit" name="low_limit" type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Define low quantity limit to show low in stock.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Image</label>
+            <div class="col-sm-10 col-md-4">
+                <input id="products_image" class="field-validate" name="products_image" type="file">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Upload default product image.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Status </label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control" name="products_status">
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Select status Active or Inactive.</span>
+            </div>
+        </div>
+
+        <!-- /.box-body -->
+        <div class="box-footer text-center">
+            <button type="submit" class="btn btn-primary">Add Product</button>
+            <a href="listingProducts" type="button" class="btn btn-default">Back</a>
+        </div>
+
+        <!-- /.box-footer -->
+    </form>
+
+</section>
+
+{% endblock main_content %}

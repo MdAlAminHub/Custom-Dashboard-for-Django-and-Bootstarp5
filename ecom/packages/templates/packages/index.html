@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Add Packages </h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active">Lebels.AddPackages</li>
+                </ul>
+                <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
+                        class="zmdi zmdi-sort-amount-desc"></i></button>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="https://admin/packages" accept-charset="UTF-8"
+        enctype="multipart/form-data" class="form-horizontal"><input name="_token" type="hidden"
+            value="">
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Package Name </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="text" name="package_name" class="form-control field-validate" required="">
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">News Category
+                    Name </span>
+
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Price </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="number" name="price" class="form-control field-validate" required="">
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">News Category
+                    Name </span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Image </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="file" name="logo" required="">
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;"> Upload news
+                    image</span>
+                <br>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Slider </label>
+            <div class="col-sm-10 col-md-4">
+                <input type="file" name="slider" required="">
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;"> Upload news
+                    image</span>
+                <br>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="features" class="col-sm-2 col-md-3 control-label"> Feature </label>
+            <div class="col-sm-10 col-md-6 package-add-list-area">
+                <div class="package-features-single">
+                    <div class="input-field">
+                        <input type="text" name="features[]" class="form-control field-validate" required="">
+                    </div>
+                    <div class="checkbox">
+                        <input type="hidden" class="check-hidden" value="0" name="features_check_hidden[]">
+                        <input type="checkbox" name="features_check[]">
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-sm btn-primary add-new-package-feature">Add New Feature</button>
+            </div>
+        </div>
+
+        <div class="box-footer text-center">
+        
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <!-- <a href="listingNewsCategories" type="button" class="btn btn-default">Back</a> -->
+        </div>
+        <!-- /.box-footer -->
+    </form>
+
+</section>
+
+{% endblock main_content %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Add Country</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ul>
+                <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
+                        class="zmdi zmdi-sort-amount-desc"></i></button>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="https://admin/addNewCountry" accept-charset="UTF-8"
+        class="form-horizontal  form-validate" enctype="multipart/form-data"><input name="_token" type="hidden"
+            value="">
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Country Name
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control  field-validate" id="countries_name" name="countries_name" type="text"
+                    value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter country name.</span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">ISO Code 2
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="countries_iso_code_2" name="countries_iso_code_2"
+                    type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter country code 2. i.e: "US" for United state.</span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">ISO Code 3
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="countries_iso_code_3" name="countries_iso_code_3"
+                    type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter country code 3. i.e: "USA" for United state.</span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <!-- /.box-body -->
+        <div class="box-footer text-center">
+            <button type="submit" class="btn btn-primary">Add Country</button>
+            <a href="listingCountries" type="button" class="btn btn-default">Back</a>
+        </div>
+        <!-- /.box-footer -->
+    </form>
+
+</section>
+
+{% endblock main_content %}

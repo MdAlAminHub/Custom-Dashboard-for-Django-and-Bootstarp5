@@ -1,0 +1,789 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Settings</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ul>
+                <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
+                        class="zmdi zmdi-sort-amount-desc"></i></button>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="https://admin/updateSetting" accept-charset="UTF-8" class="form-horizontal"
+        enctype="multipart/form-data"><input name="_token" type="hidden" value="">
+
+        <input class="form-control" id="id" name="setting_id" type="hidden" value="1">
+        <h4>General Settings </h4>
+        <hr>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Home Style
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="home_style" class="form-control">
+                    <option selected="" value="1"> Style 1</option>
+                    <option value="2"> Style 2</option>
+                    <option value="3"> Style 3</option>
+                    <option value="4"> Style 4</option>
+                    <option value="5"> Style 5</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose default
+                    home style.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Category Style
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="category_style" class="form-control">
+                    <option selected="" value="1"> Categories 1</option>
+                    <option value="2"> Categories 2</option>
+                    <option value="3"> Categories 3</option>
+                    <option value="4"> Categories 4</option>
+                    <option value="5"> Categories 5</option>
+                    <option value="6"> Categories 6</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose default
+                    Category Style.</span>
+            </div>
+        </div>
+
+        <div class="form-group row android-hide">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Display Footer Menu
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="footer_button" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Display footer menu in
+                    App.</span>
+            </div>
+        </div>
+
+        <div class="form-group row android-hide">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Display Cart Button
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="cart_button" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Display cart button on
+                    individual product.</span>
+            </div>
+        </div>
+
+        <div class="form-group row android-hide">
+            <label for="name" class="col-sm-2 col-md-3 control-label">iOS App Share
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="package_name" name="package_name" type="text" value="package name">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter URL to iOS
+                    share App.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">App Name
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="app_name" name="app_name" type="text" value="GroceryBazar">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Enter your App
+                    Name</span>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Website URL
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="site_url" name="site_url" type="text" value="bird.pioneer.com">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your
+                    website URL.</span>
+            </div>
+        </div>
+
+        <div class="form-group  row android-hide" style="display: none">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Google Analytic Id
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="google_analytic_id" name="google_analytic_id" type="text" value="test">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter Google
+                    Analytic Id.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Currency Symbol
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="currency_symbol" name="currency_symbol" type="text" value="৳">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Enter currency symbol
+                    for price.</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">New Product Duration
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="new_product_duration" name="new_product_duration" type="text"
+                    value="20">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter in days.
+                    e.g: 20. Newly will appear in product card on home shop &amp; product detail page.</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Every Point Count </label>
+            <div class="col-sm-10 col-md-4">
+                <div class="input-group d-flex align-items-center text-nowrap">
+                    <input type="decimal" name="every_point_count" value="0" class="form-control" required="">
+                    <label>৳</label>
+                </div>
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;"> Every Point
+                    Count </span>
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> One Point Get From </label>
+            <div class="col-sm-10 col-md-4">
+                <div class="input-group d-flex align-items-center text-nowrap">
+                    <input type="number" name="one_point_value" value="0" class="form-control field-validate"
+                        required="">
+                    <label> ৳ Purchase </label>
+                </div>
+                <span class="help-block" style="font-weight: normal; font-size: 11px; margin-bottom: 0;">One Point
+                    Amount </span>
+
+                <span class="help-block hidden"> </span>
+            </div>
+        </div>
+
+        <div class="form-group row android-hide" style="display: none">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Lazzy Loading Effect
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+
+                <select name="lazzy_loading_effect" class="form-control">
+                    <option value="android"> Android</option>
+                    <option value="ios-small"> IOS(small)</option>
+                    <option selected="" value="bubbles"> Bubbles</option>
+                    <option value="circles"> Circles</option>
+                    <option value="crescent"> Crescent</option>
+                    <option value="dots"> Dots</option>
+                    <option value="lines"> Lines</option>
+                    <option value="ripple"> Ripple</option>
+                    <option value="spiral"> Spiral</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Select loader style for
+                    loading products.</span>
+            </div>
+        </div>
+
+        <hr>
+        <h4>Inquery Emails </h4>
+        <hr>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Contact Us Email
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="contact_us_email" name="contact_us_email" type="text"
+                    value="contact@alamin.com">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">
+                    User will be contact to you via this email address.</span>
+            </div>
+        </div>
+
+
+
+        <hr>
+        <h4>Our Info </h4>
+        <hr>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Phone Number
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="phone_no" name="phone_no" type="text" value="+88017140XXXXXXX">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">
+                    User will be able to contact to you via this phone number.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Address
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="address" name="address" type="text" value="Dhaka">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your
+                    address.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">City
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="city" name="city" type="text" value="Dhaka">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your
+                    city.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">State
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="state" name="state" type="text" value="Dhaka">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your
+                    state.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Zip
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="zip" name="zip" type="text" value="1215">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your
+                    zip.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Country
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="country" name="country" type="text" value="BD">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your
+                    country.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Latitude
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="latitude" name="latitude" type="text" value="40.730610">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your
+                    latitude for map.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Longitude</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="longitude" name="longitude" type="text" value="-73.935242">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your
+                    longitude for map.</span>
+            </div>
+        </div>
+
+        <hr>
+        <h4>Display In Menu/Sidebar </h4>
+        <hr>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">WishList
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="wish_list_page" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display wishlist page.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Edit Profile
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="edit_profile_page" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display Edit Profile page.</span>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Shipping Address
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="shipping_address_page" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display Shipping Address page.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">My Orders
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="my_orders_page" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display My Orders page.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Contact Us
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="contact_us_page" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display Contact Us page.</span>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">About Us
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="about_us_page" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display About Us page.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">News
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="news_page" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display News page.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Introduction
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="intro_page" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display Introduction page.</span>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">ShareApp
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="share_app" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display ShareApp.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">RateApp</label>
+            <div class="col-sm-10 col-md-4">
+                <select name="rate_app" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display RateApp.</span>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Setting
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="setting_page" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose show to
+                    display Setting page.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Login Pop Up
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="login_pop_up" class="form-control">
+                    <option selected="" value="1"> Show</option>
+                    <option value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Login Pop Up</span>
+            </div>
+        </div>
+
+
+        <hr>
+        <h4>Local Notification </h4>
+        <hr>
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Title
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="notification_title" name="notification_title" type="text"
+                    value="GroceryBazar">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Local Notification
+                    Title.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Detail
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="notification_text" name="notification_text" type="text"
+                    value="A bundle of products waiting for you!">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Local Notification
+                    Detail.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Notification Duration</label>
+            <div class="col-sm-10 col-md-4">
+
+                <select class="form-control" name="notification_duration">
+                    <option value="day" selected="">Day</option>
+                    <option value="month">Month</option>
+                    <option value="year">Year</option>
+                </select>
+
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Please select
+                    duration for local notification.</span>
+            </div>
+        </div>
+
+        <hr>
+        <h4>Push Notification Setting (FCM) </h4>
+        <hr>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">App Key
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="fcm_android" name="fcm_android" type="text"
+                    value="AAAAxNnY6es:APA91bFLSgyJ5TFFQMH-1lpciLq97tqaazJoHtZ20C-yKYvYIDCiTbfuCuAsDV-1CJi7HCghgcZjAroQ74rRTAKSjBU1Wve9L6IIjUE5kHd0Jt7AKHtR-G0sgYssS0GhPaI0IKg2uRRD">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">
+                    App Key of FCM push notification.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Sender Id
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="fcm_android_sender_id" name="fcm_android_sender_id" type="text"
+                    value="845468461547">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Sender Id of FCM push
+                    notification.</span>
+            </div>
+        </div>
+
+
+
+        <hr>
+
+        <h4>Facbook Login </h4>
+        <hr>
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Facebook App ID
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="facebook_app_id" name="facebook_app_id" type="text"
+                    value="1276182672806612">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Enter you "Facbook" App
+                    ID</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Facebook Secret ID
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="facebook_secret_id" name="facebook_secret_id" type="text"
+                    value="b6db9f8ae5aa155befaa588d11a9ab95">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Enter you "Facbook"
+                    Secret ID</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Facebook Login
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="facebook_login" class="form-control">
+                    <option value="1"> Enable</option>
+                    <option selected="" value="0"> Disable</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose enable
+                    option to enable user facebook login.</span>
+            </div>
+        </div>
+
+        <hr>
+        <h4>Google Login </h4>
+        <hr>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Google Login
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="google_login" class="form-control">
+                    <option value="1"> Enable</option>
+                    <option selected="" value="0"> Disable</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please choose enable
+                    option to enable user Google login.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Google ClientId
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="google_client_id" name="google_client_id" type="text"
+                    value="957202511976-ah41emnahb4r6t6u452pna9ttqnrt6e6.apps.googleusercontent.com">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Google client Id</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Google Client Secret Key
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="google_secret_key" name="google_secret_key" type="text"
+                    value="V1stDdfcj9JJuxx4BaCJwkIZ">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Google Secret Key</span>
+            </div>
+        </div>
+
+        <hr>
+        <h4>AdMob Setting </h4>
+        <hr>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">AdMob ID
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="admob_id" name="admob_id" type="text" value="">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your AdMob
+                    ID.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Unit ID Banner
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="ad_unit_id_banner" name="ad_unit_id_banner" type="text" value="">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your AdMob
+                    Unit ID Banner.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Unit ID Interstitial
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="ad_unit_id_interstitial" name="ad_unit_id_interstitial" type="text"
+                    value="">
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Please enter your AdMob
+                    Unit ID Interstitial.</span>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">AdMob Status
+
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <select name="admob" class="form-control">
+                    <option value="1"> Show</option>
+                    <option selected="" value="0"> Hide</option>
+
+                </select>
+
+                <span class="help-block"
+                    style="font-weight: normal;font-size: 11px;margin-bottom: 0;margin-top: 0;">Select Show to display
+                    AdMob.</span>
+            </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer text-center">
+            <button type="submit" class="btn btn-primary">Update </button>
+            <a href="https://admin/dashboard/this_month" type="button" class="btn btn-default">Back</a>
+        </div>
+
+        <!-- /.box-footer -->
+    </form>
+
+</section>
+
+{% endblock main_content %}

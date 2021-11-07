@@ -19,7 +19,15 @@ urlpatterns = [
     path('home/', include('flash_deal_product.urls')),
     path('home/', include('category_settings.urls')),
     path('home/', include('categories.urls')),
-    
+    path('home/', include('products.urls')),
+    path('home/', include('packages.urls')),
+    path('home/', include('news.urls')),
+    path('home/', include('tax_location.urls')),
+    path('home/', include('notifications.urls')),
+    path('home/', include('reports.urls')),
+    path('home/', include('feature.urls')),
+    path('home/', include('site_settings.urls')),
+
 
 
 
