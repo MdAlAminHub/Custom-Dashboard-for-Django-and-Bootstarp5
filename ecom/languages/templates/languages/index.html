@@ -17,12 +17,21 @@
             <div class="col-lg-5 col-md-6 col-sm-12">
                 <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
                         class="zmdi zmdi-arrow-right"></i></button>
+                <div class="box-footer text-right">
+                    <a href="/home/languages-list">
+
+                        <button type="button" class="btn btn-primary">View List</button>
+                    </a>
+                </div>
             </div>
+
         </div>
     </div>
 
-    <form method="POST" action="https://admin/addNewLanguages" accept-charset="UTF-8"
-        class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden" value="">
+    <form method="POST" action="" accept-charset="UTF-8" class="form-horizontal form-validate"
+        enctype="multipart/form-data">
+
+        {% csrf_token %}
 
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Name</label>
@@ -43,20 +52,8 @@
                 <span class="help-block hidden"></span>
             </div>
         </div>
-        {% comment %} <div class="form-group row ">
-            <label for="inputState" class=" ">Direction</label>
-            <select id="inputState" class="form-control select-2">
-                <option value="" disabled>Choose...</option>
-                <option value="rtl">Right To Left</option>
-                <option value="ltr">Left To Right</option>
 
-
-            </select>
-            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Language
-                Direction</span>
-        </div> {% endcomment %}
-
-        <div class="form-group row">
+        {% comment %} <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Direction</label>
             <div class="col-sm-10 col-md-4">
                 <select class="form-control field-validate" id="direction" name="direction">
@@ -67,7 +64,7 @@
                     Direction</span>
                 <span class="help-block hidden"></span>
             </div>
-        </div> 
+        </div> {% endcomment %}
 
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Icon</label>
@@ -89,19 +86,14 @@
         <!-- /.box-body -->
         <div class="box-footer text-center">
             <button type="submit" class="btn btn-primary">Add Language</button>
-            <a href="https://admin/listingPages" type="button" class="btn btn-default">Back</a>
-        </div>
+            {% comment %} <a href="https://admin/listingPages" type="button" class="btn btn-default">Back</a>
+            {% endcomment %}
 
-        <!-- /.box-footer -->
 
-        {% comment %} <!-- /.box-body -->
-        <div class="box-footer text-center">
-            <div class="col-sm-offset-2 col-md-offset-3 col-sm-10 col-md-4">
-                <button type="submit" class="btn btn-primary">Add Language</button>
-                <a href="listingLanguages" type="button" class="btn btn-default">Back</a>
-            </div>
         </div>
-        <!-- /.box-footer --> {% endcomment %}
+       
+
+
     </form>
 
 
