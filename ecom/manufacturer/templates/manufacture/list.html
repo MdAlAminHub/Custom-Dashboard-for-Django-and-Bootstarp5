@@ -6,7 +6,7 @@
     <div class="block-header">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                <h2>Pages List</h2>
+                <h2>Manufacturer List</h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
                     <li class="breadcrumb-item active"></li>
@@ -17,8 +17,8 @@
                 <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
                         class="zmdi zmdi-arrow-right"></i></button>
                 <div class="box-footer text-right">
-                    <a href="/home/pages">
-                        <button type="button" class="btn btn-primary">Add Pages</button>
+                    <a href="/home/manufacturer">
+                        <button type="button" class="btn btn-primary">Add  New Manufacturer</button>
                     </a>
                 </div>
             </div>
@@ -31,23 +31,19 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Slug</th>
-                <th>Status</th>
-                <th></th>
+                <th>image</th>
+                <th>Other Info</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             {% for list in lists%}
             <tr>
                 <td>1</td>
-                <td>{{list.page_slug}}</td>
-                <td>{{list.page_name_english}}</td>
-                <td>{{list.description_english}}</td>
-                <td>{{list.page_name_bangla}}</td>
-                <td>{{list.description_bangla}}</td>
-                <td>
-    
-                </td>
+                <td>{{list.name}}</td>
+                <td>{{list.manufacturer_url}}</td>
+                <td>{{list.image}}</td>
+                
             </tr>
             {% endfor %}
         </tbody>
