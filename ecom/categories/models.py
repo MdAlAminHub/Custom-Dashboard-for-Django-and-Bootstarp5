@@ -12,7 +12,7 @@ class Categories(models.Model):
    
 
     def __str__(self):
-       return self.name
+       return self.name_english
    
 class SubCategories(models.Model):
     category = models.CharField(max_length=100)
@@ -26,7 +26,7 @@ class SubCategories(models.Model):
    
 
     def __str__(self):
-       return self.name
+       return self.category
    
    
 

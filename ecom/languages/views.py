@@ -8,7 +8,6 @@ def test(request):
         post = Languages()
         post.name = request.POST.get('name')
         post.code = request.POST.get('code')
-        # post.diirecton = request.POST.get('diirecton')
         post.icon = request.POST.get('icon')
         post.directory = request.POST.get('directory ')
         post.save()
