@@ -22,3 +22,10 @@ def list(request):
     lists =  Languages.objects.all()
     args = {'lists': lists}
     return render(request, 'languages/list.html', args)
+
+
+def edit(request,pk):
+    list = Languages.objects.filter(id=pk)
+    args = {'lists': list}
+    print(list)
+    return render(request, 'languages/edit.html', args)

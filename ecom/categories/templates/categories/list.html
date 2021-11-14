@@ -1,0 +1,307 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Main Categories</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ul>
+
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+                <div class="box-footer text-right">
+                    <a href="/home/Categories">
+                        <button type="button" class="btn btn-primary">Add New Category</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <table style="width:100%" id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Icon</th>
+                <th>Added/Last Modified Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for list in lists%}
+            <tr>
+                <td>1</td>
+                <td>{{list.name}}</td>
+                <td><img src="/{{list.image}}" width="25px" alt=""></td>
+                <td><img src="/{{list.icon}}" width="25px" alt=""></td>
+                <td>{{list.added_last_modified_date}}</td>
+                <td>{{list.action}}</td>
+                <td>
+
+                    <a data-toggle="tooltip" data-placement="bottom" title=" English" href="editLanguages/1"
+                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a data-toggle="tooltip" data-placement="bottom" title=" English" id="deleteLanguageId"
+                        languages_id="1" class="badge bg-red"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</section>
+
+{% endblock main_content %}
+
+{% comment %} 
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Listing All Main Categories </h3>
+        <div class="box-tools pull-right">
+            <a href="addCategory" type="button" class="btn btn-block btn-primary">Add New Category</a>
+        </div>
+    </div>
+
+    <!-- /.box-header -->
+    <div class="box-body">
+        <div class="row">
+            <div class="col-xs-12">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="example1_wrapper" class="dataTables_wrapper no-footer">
+                    <div class="dt-buttons"> <button class="dt-button buttons-excel buttons-html5" tabindex="0"
+                            aria-controls="example1" type="button"><span>Excel</span></button> <button
+                            class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="example1"
+                            type="button"><span>PDF</span></button> <button class="dt-button buttons-print" tabindex="0"
+                            aria-controls="example1" type="button"><span>Print</span></button> </div>
+                    <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class=""
+                                placeholder="" aria-controls="example1"></label></div>
+                    <table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid"
+                        aria-describedby="example1_info">
+                        <thead>
+                            <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-sort="ascending" aria-label="ID: activate to sort column descending"
+                                    style="width: 30px;">ID</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="Name: activate to sort column ascending" style="width: 228px;">Name</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="Image: activate to sort column ascending" style="width: 125px;">Image
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="Icon: activate to sort column ascending" style="width: 124px;">Icon</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="Added/Last Modified Date: activate to sort column ascending"
+                                    style="width: 269px;">Added/Last Modified Date</th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="Action: activate to sort column ascending" style="width: 65px;">Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">2</td>
+                                <td>Meat, Fish &amp; Egg</td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_images/1632899297.1.jpg"
+                                        alt="" width=" 100px"></td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_icons/1582356042.protein.svg"
+                                        alt="" width=" 100px"></td>
+                                <td><strong>Added Date: </strong> 2017-08-07 10:24:45<br>
+                                    <strong>Modified Date: </strong>2021-09-29 07:08:17 </td>
+                                <td><a data-toggle="tooltip" data-placement="bottom" title="Edit" href="editCategory/2"
+                                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i></a>
+                                    <a data-toggle="tooltip" data-placement="bottom" title="Delete"
+                                        href="deleteCategory/2" class="badge bg-red"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">3</td>
+                                <td>Cooking Essential</td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_images/1632897364.2.jpg"
+                                        alt="" width=" 100px"></td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_icons/1582356694.chef.svg"
+                                        alt="" width=" 100px"></td>
+                                <td><strong>Added Date: </strong> 2017-08-07 10:32:16<br>
+                                    <strong>Modified Date: </strong>2021-09-29 06:36:04 </td>
+                                <td><a data-toggle="tooltip" data-placement="bottom" title="Edit" href="editCategory/3"
+                                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i></a>
+                                    <a data-toggle="tooltip" data-placement="bottom" title="Delete"
+                                        href="deleteCategory/3" class="badge bg-red"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">4</td>
+                                <td>General Grocery</td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_images/1632904693.3.jpg"
+                                        alt="" width=" 100px"></td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_icons/1582356968.supermarket.svg"
+                                        alt="" width=" 100px"></td>
+                                <td><strong>Added Date: </strong> 2017-08-07 11:05:58<br>
+                                    <strong>Modified Date: </strong>2021-09-29 08:38:13 </td>
+                                <td><a data-toggle="tooltip" data-placement="bottom" title="Edit" href="editCategory/4"
+                                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i></a>
+                                    <a data-toggle="tooltip" data-placement="bottom" title="Delete"
+                                        href="deleteCategory/4" class="badge bg-red"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">5</td>
+                                <td>Fruits &amp; Vegetables</td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_images/1632905934.4.jpg"
+                                        alt="" width=" 100px"></td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_icons/1582357336.fruit.svg"
+                                        alt="" width=" 100px"></td>
+                                <td><strong>Added Date: </strong> 2017-08-07 11:07:21<br>
+                                    <strong>Modified Date: </strong>2021-09-29 08:58:54 </td>
+                                <td><a data-toggle="tooltip" data-placement="bottom" title="Edit" href="editCategory/5"
+                                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i></a>
+                                    <a data-toggle="tooltip" data-placement="bottom" title="Delete"
+                                        href="deleteCategory/5" class="badge bg-red"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">6</td>
+                                <td>Home Care &amp; Cleaning Utilities</td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_images/1632906448.5.jpg"
+                                        alt="" width=" 100px"></td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_icons/1502104226.home.png"
+                                        alt="" width=" 100px"></td>
+                                <td><strong>Added Date: </strong> 2017-08-07 11:10:26<br>
+                                    <strong>Modified Date: </strong>2021-09-29 09:07:28 </td>
+                                <td><a data-toggle="tooltip" data-placement="bottom" title="Edit" href="editCategory/6"
+                                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i></a>
+                                    <a data-toggle="tooltip" data-placement="bottom" title="Delete"
+                                        href="deleteCategory/6" class="badge bg-red"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">38</td>
+                                <td>Dairy &amp; Bakery</td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_images/1632907681.6.jpg"
+                                        alt="" width=" 100px"></td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_icons/1582357992.milk.svg"
+                                        alt="" width=" 100px"></td>
+                                <td><strong>Added Date: </strong> 2020-02-22 05:37:04<br>
+                                    <strong>Modified Date: </strong>2021-09-29 09:28:01 </td>
+                                <td><a data-toggle="tooltip" data-placement="bottom" title="Edit" href="editCategory/38"
+                                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i></a>
+                                    <a data-toggle="tooltip" data-placement="bottom" title="Delete"
+                                        href="deleteCategory/38" class="badge bg-red"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">39</td>
+                                <td>Beverages</td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_images/1632909454.7.jpg"
+                                        alt="" width=" 100px"></td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_icons/1632909454.Beverages.png"
+                                        alt="" width=" 100px"></td>
+                                <td><strong>Added Date: </strong> 2020-02-22 05:38:55<br>
+                                    <strong>Modified Date: </strong>2021-09-29 09:57:34 </td>
+                                <td><a data-toggle="tooltip" data-placement="bottom" title="Edit" href="editCategory/39"
+                                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i></a>
+                                    <a data-toggle="tooltip" data-placement="bottom" title="Delete"
+                                        href="deleteCategory/39" class="badge bg-red"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">40</td>
+                                <td>Baby Products</td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_images/1632909593.8.jpg"
+                                        alt="" width=" 100px"></td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_icons/1582358314.child.svg"
+                                        alt="" width=" 100px"></td>
+                                <td><strong>Added Date: </strong> 2020-02-22 05:59:53<br>
+                                    <strong>Modified Date: </strong>2021-09-29 09:59:53 </td>
+                                <td><a data-toggle="tooltip" data-placement="bottom" title="Edit" href="editCategory/40"
+                                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i></a>
+                                    <a data-toggle="tooltip" data-placement="bottom" title="Delete"
+                                        href="deleteCategory/40" class="badge bg-red"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr role="row" class="odd">
+                                <td class="sorting_1">41</td>
+                                <td>Personal Care</td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_images/1632910163.9.jpg"
+                                        alt="" width=" 100px"></td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_icons/1582358442.patient.svg"
+                                        alt="" width=" 100px"></td>
+                                <td><strong>Added Date: </strong> 2020-02-22 06:00:26<br>
+                                    <strong>Modified Date: </strong>2021-09-29 10:09:23 </td>
+                                <td><a data-toggle="tooltip" data-placement="bottom" title="Edit" href="editCategory/41"
+                                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i></a>
+                                    <a data-toggle="tooltip" data-placement="bottom" title="Delete"
+                                        href="deleteCategory/41" class="badge bg-red"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr role="row" class="even">
+                                <td class="sorting_1">42</td>
+                                <td>Stationary &amp; Health Care</td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_images/1632911488.Stationary &amp; Health Care.jpg"
+                                        alt="" width=" 100px"></td>
+                                <td><img src="https://ecom.hossainazad.com//resources/assets/images/category_icons/1582358581.stationery (1).svg"
+                                        alt="" width=" 100px"></td>
+                                <td><strong>Added Date: </strong> 2020-02-22 06:07:04<br>
+                                    <strong>Modified Date: </strong>2021-09-29 10:31:28 </td>
+                                <td><a data-toggle="tooltip" data-placement="bottom" title="Edit" href="editCategory/42"
+                                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i></a>
+                                    <a data-toggle="tooltip" data-placement="bottom" title="Delete"
+                                        href="deleteCategory/42" class="badge bg-red"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of
+                        10 entries</div>
+                </div>
+                <div class="col-xs-12 text-right">
+                    <ul class="pagination">
+
+                        <li class="page-item disabled"><span class="page-link">«</span></li>
+
+
+
+
+
+                        <li class="page-item active"><span class="page-link">1</span></li>
+                        <li class="page-item"><a class="page-link"
+                                href="https://ecom.hossainazad.com/admin/listingCategories?page=2">2</a></li>
+
+
+                        <li class="page-item"><a class="page-link"
+                                href="https://ecom.hossainazad.com/admin/listingCategories?page=2" rel="next">»</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.box-body -->
+</div> {% endcomment %}

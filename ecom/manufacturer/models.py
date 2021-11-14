@@ -9,4 +9,4 @@ class Manufacturer(models.Model):
     
 
     def __str__(self):
-       return self.page_slug
+       return self.name

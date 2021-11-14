@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Languages List</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ul>
+
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+                <div class="box-footer text-right">
+                    <a href="/home/languages">
+                        <button type="button" class="btn btn-primary">Add Language</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <table style="width:100%" id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Language</th>
+                <th>Icon</th>
+                <th>Code</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for list in lists%}
+            <tr>
+                <td>1</td>
+                <td>{{list.name}}</td>
+                <td><img src="/{{list.icon}}" width="25px" alt=""></td>
+                <td>{{list.code}}</td>
+                <td>
+
+                    <a data-toggle="tooltip" data-placement="bottom" title=" English" href="editLanguages/1"
+                        class="badge bg-light-blue"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a data-toggle="tooltip" data-placement="bottom" title=" English" id="deleteLanguageId"
+                        languages_id="1" class="badge bg-red"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</section>
+
+{% endblock main_content %}
