@@ -43,6 +43,13 @@
                 <td>{{list.name}}</td>
                 <td>{{list.manufacturer_url}}</td>
                 <td>{{list.image}}</td>
+                <td>
+                 <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
+                 <form action="{% url 'deletedata'  list.id %}" method="post" class="d-inline">
+                    {% csrf_token%}
+                   <input type="submit"  class="btn btn-danger" value="Delete">
+                 </form>
+                </td>
                 
             </tr>
             {% endfor %}

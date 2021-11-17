@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from .serializers import *
 from .models import *
 
@@ -24,8 +24,25 @@ def list(request):
     return render(request, 'languages/list.html', args)
 
 
-def edit(request,pk):
-    list = Languages.objects.filter(id=pk)
-    args = {'lists': list}
-    print(list)
-    return render(request, 'languages/edit.html', args)
+# def edit(request,pk):
+#     list = Languages.objects.filter(id=pk)
+#     args = {'lists': list}
+#     print(list)
+#     return render(request, 'languages/edit.html', args)
+
+def update_data(request ,id):
+    list = Languages.objects.get(pk=id)
+    if request.method =='POST':
+        list.name = request.POST.get('name')
+        list.code = request.POST.get('code')
+        list.icon = request.POST.get('icon')
+        list.directory = request.POST.get('directory ')
+        list.save()
+    return render(request, 'languages/edit.html', {'id': id, 'list': list})
+
+def delete_data(request, id):
+    if request.method == 'POST':
+        pi = Languages.objects.get(pk=id)
+        pi.delete()
+        return HttpResponseRedirect('/home/languages-list')
+    

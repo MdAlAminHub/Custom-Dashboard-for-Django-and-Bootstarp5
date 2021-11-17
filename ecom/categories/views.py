@@ -7,8 +7,12 @@ def test(request):
 def sub_test(request):
     return render(request, 'sub_categories/index.html')
 
-def rahim(request):
-    return render(request, 'sub_categories/index.html')
+
+def list(request):
+    return render(request, 'categories/list.html')
+
+# def rahim(request):
+#     return render(request, 'sub_categories/index.html')
 
 
 # def test(request):

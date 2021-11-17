@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block main_content %}
 <section class="content">
     <div class="block-header">
@@ -33,20 +32,22 @@
                 <th>Name</th>
                 <th>Slug</th>
                 <th>Status</th>
-                <th></th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             {% for list in lists%}
             <tr>
-                <td>1</td>
+                <td>{{list.id}}</td>
                 <td>{{list.page_slug}}</td>
                 <td>{{list.page_name_english}}</td>
-                <td>{{list.description_english}}</td>
                 <td>{{list.page_name_bangla}}</td>
-                <td>{{list.description_bangla}}</td>
                 <td>
-    
+                 <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
+                 <form action="{% url 'deletedata'  list.id %}" method="post" class="d-inline">
+                    {% csrf_token%}
+                   <input type="submit"  class="btn btn-danger" value="Delete">
+                 </form>
                 </td>
             </tr>
             {% endfor %}
