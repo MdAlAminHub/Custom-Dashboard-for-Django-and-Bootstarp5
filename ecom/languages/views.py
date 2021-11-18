@@ -24,11 +24,7 @@ def list(request):
     return render(request, 'languages/list.html', args)
 
 
-# def edit(request,pk):
-#     list = Languages.objects.filter(id=pk)
-#     args = {'lists': list}
-#     print(list)
-#     return render(request, 'languages/edit.html', args)
+
 
 def update_data(request ,id):
     list = Languages.objects.get(pk=id)

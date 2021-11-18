@@ -6,7 +6,7 @@
     <div class="block-header">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                <h2>Listing All Categories</h2>
+                <h2>Listing alla Options </h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
                     <li class="breadcrumb-item active"></li>
@@ -17,8 +17,8 @@
                 <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
                         class="zmdi zmdi-arrow-right"></i></button>
                 <div class="box-footer text-right">
-                    <a href="/home/sub_categories">
-                        <button type="button" class="btn btn-primary">Add Sub Category</button>
+                    <a href="/home/products_attributes">
+                        <button type="button" class="btn btn-primary">Add New Options </button>
                     </a>
                 </div>
             </div>
@@ -30,11 +30,9 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
                 <th>Image</th>
-                <th>Icon</th>
-                <th>Main Category</th>
-                <th>Added/Last modified date </th>
+                <th>Product Description</th>
+                <th>Added/Last Modified Date</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -42,10 +40,9 @@
             {% for list in lists%}
             <tr>
                 <td>{{list.id}}</td>
-                <td>{{list.name}}</td>
+               
                 <td><img src="/{{list.image}}" width="25px" alt=""></td>
-                <td><img src="/{{list.icon}}" width="25px" alt=""></td>
-                <td>{{list.main_category}}</td>
+                <td>{{list.product_description}}</td>
                 <td>{{list.added_last_modified_date}}</td>
                 <td>
                  <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
