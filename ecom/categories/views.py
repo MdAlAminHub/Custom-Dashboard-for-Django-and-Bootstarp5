@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render, HttpResponseRedirect
 from .models import *
+from django.core.files.storage import FileSystemStorage
 
 
 def test(request):
@@ -9,8 +10,17 @@ def test(request):
         post = Categories()
         post.name_bangla = request.POST.get('name_bangla')
         post.name_english = request.POST.get('name_english')
-        post.icon = request.POST.get('image')
-        post.icon = request.POST.get('icon')
+        
+        upload = request.FILES['image']
+        fss = FileSystemStorage()
+        file = fss.save(upload.name, upload)
+        file_url = fss.url(file)
+        post.image = file_url
+        icon = request.FILES['icon']
+        fss = FileSystemStorage()
+        file_icon = fss.save(icon.name, icon)
+        file_icon_url = fss.url(file_icon)
+        post.icon = file_icon_url
         post.save()
 
         return render(request, 'categories/index.html')
@@ -30,7 +40,7 @@ def delete_data(request, id):
     if request.method == 'POST':
         pi = Categories.objects.get(pk=id)
         pi.delete()
-        return HttpResponseRedirect('/home/category-list')
+        return HttpResponseRedirect('/home/categories-list')
     
     
     
@@ -38,9 +48,9 @@ def sub_test(request):
     if request.method == 'POST':
 
         post = SubCategories()
-        post.name = request.POST.get('name_bangla')
-        post.code = request.POST.get('name_english')
-        post.icon = request.POST.get('image')
+        post.name_bangla= request.POST.get('name_bangla')
+        post.name_english = request.POST.get('name_english')
+        post.image = request.POST.get('image')
         post.icon = request.POST.get('icon')
         post.save()
 

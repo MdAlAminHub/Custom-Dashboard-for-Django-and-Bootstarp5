@@ -3,7 +3,8 @@ from .serializers import *
 from .models import *
 
 def test(request):
-    if request.method=='POST':
+    if request.method == 'POST':
+        
        
         post = Languages()
         post.name = request.POST.get('name')

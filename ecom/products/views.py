@@ -1,5 +1,5 @@
 from django.shortcuts import render
-# from .models import *
+from .models import *
 
 
 def test(request):
@@ -7,14 +7,15 @@ def test(request):
 
 
 def list(request):
-    # lists = products.objects.all()
+    # lists = Products.objects.all()
     # args = {'lists': lists}
-    return render(request, 'products/list.html', )
+    return render(request, 'products/list.html')
+
 
 def sub_test(request):
     return render(request, 'product_attributes/index.html')
 
-def attribute_list(request):
-    return render(request, 'products_attributes/list.html', )
+def sub_list(request):
+    return render(request, 'product_attributes/list.html', )
 
 

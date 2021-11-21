@@ -44,7 +44,8 @@
                 <td>{{list.name_english}}</td>
                 <td><img src="/{{list.image}}" width="25px" alt=""></td>
                 <td><img src="/{{list.icon}}" width="25px" alt=""></td>
-                <td>{{list.added_last_modified_date}}</td>
+                <td>{{list.added_last_modified_date}}</td> 
+                
                 <td>
                  <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
                  <form action="{% url 'deletedata'  list.id %}" method="post" class="d-inline">

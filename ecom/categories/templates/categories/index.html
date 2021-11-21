@@ -22,12 +22,14 @@
         </div>
     </div>
     <form method="POST" action="" accept-charset="UTF-8"
-        class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden" value="">
+        class="form-horizontal form-validate" 
+        enctype="multipart/form-data">
+        
          {% csrf_token %}
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Name (English)</label>
             <div class="col-sm-10 col-md-4">
-                <input type="text" name="categoryName_1" class="form-control field-validate">
+                <input type="text" name="name_english" class="form-control field-validate">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Category name
                     (English).</span>
                 <span class="help-block hidden"></span>
@@ -36,7 +38,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Name (Bangla)</label>
             <div class="col-sm-10 col-md-4">
-                <input type="text" name="categoryName_2" class="form-control field-validate">
+                <input type="text" name="name_bangla" class="form-control field-validate">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Category name
                     (Bangla).</span>
                 <span class="help-block hidden"></span>
@@ -45,7 +47,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Image</label>
             <div class="col-sm-10 col-md-4">
-                <input id="newImage" name="newImage" type="file">
+                <input id="newImage" name="image" type="file">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Upload category
                     image.</span>
             </div>
@@ -54,7 +56,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Icon</label>
             <div class="col-sm-10 col-md-4">
-                <input id="newIcon" name="newIcon" type="file">
+                <input id="newIcon" name="icon" type="file">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Upload category icon.</span>
                 <br>
