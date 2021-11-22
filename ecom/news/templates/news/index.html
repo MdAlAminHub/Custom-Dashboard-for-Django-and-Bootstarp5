@@ -20,9 +20,10 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="https://admin/addNewNews" accept-charset="UTF-8"
-        class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden"
-            value="">
+    <form method="POST" action="" accept-charset="UTF-8"
+        class="form-horizontal form-validate" enctype="multipart/form-data">
+
+         {% csrf_token %}
 
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Category</label>
@@ -60,9 +61,6 @@
                     Enter Description.</span>
             </div>
         </div>
-
-
-
 
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Title News (Bangla) </label>
