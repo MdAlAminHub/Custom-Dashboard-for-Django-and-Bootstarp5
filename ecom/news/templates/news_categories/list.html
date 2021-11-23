@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>News Categories</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ul>
+
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+                <div class="box-footer text-right">
+                    <a href="/home/news_categories">
+                        <button type="button" class="btn btn-primary">Add News Categories</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <table style="width:100%" id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Added/Last Modified date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for list in lists%}
+            <tr>
+                <td>{{list.id}}</td>
+                <td>{{list.name_english}}</td>
+                <td><img src="/{{list.image}}" width="25px" alt=""></td>
+                <td>{{list.added_last_modified_date}}</td>
+                <td>
+                 <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
+                 <form action="{% url 'deletedata'  list.id %}" method="post" class="d-inline">
+                    {% csrf_token%}
+                   <input type="submit"  class="btn btn-danger" value="Delete">
+                 </form>
+                </td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</section>
+
+{% endblock main_content %}

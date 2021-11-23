@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>News </h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ul>
+
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+                <div class="box-footer text-right">
+                    <a href="/home/news">
+                        <button type="button" class="btn btn-primary">Listing All News</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <table style="width:100%" id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Feature</th>
+                <th>Added/Last Modified date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for list in lists%}
+            <tr>
+                <td>{{list.id}}</td>
+                <td><img src="/{{list.image}}" width="25px" alt=""></td>
+                <td>{{list.name}}</td>
+                <td>{{list.feature}}</td>
+                <td>{{list.added_last_modified_date}}</td>
+         
+               </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+</section>
+
+{% endblock main_content %}

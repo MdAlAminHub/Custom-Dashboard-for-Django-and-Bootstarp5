@@ -20,13 +20,14 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="https://admin/addNewsNewCategory" accept-charset="UTF-8"
+    <form method="POST" action="" accept-charset="UTF-8"
         class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden"
             value="">
+            {% csrf_token %}
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Name (English)</label>
             <div class="col-sm-10 col-md-4">
-                <input type="text" name="categoryName_1" class="form-control field-validate">
+                <input type="text" name="name_english" class="form-control field-validate">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">News Category
                     Name (English)</span>
 
@@ -36,7 +37,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Name (Bangla)</label>
             <div class="col-sm-10 col-md-4">
-                <input type="text" name="categoryName_2" class="form-control field-validate">
+                <input type="text" name="name_bangla" class="form-control field-validate">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">News Category
                     Name (Bangla)</span>
 
@@ -46,7 +47,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Image </label>
             <div class="col-sm-10 col-md-4">
-                <input id="newImage" name="newImage" type="file">
+                <input id="newImage" name="image" type="file">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Upload news image</span>
                 <br>
@@ -56,9 +57,9 @@
        
         <div class="box-footer text-center">
             <button type="submit" class="btn btn-primary">Add News Category</button>
-            <a href="listingNewsCategories" type="button" class="btn btn-default">Back</a>
+            <a href="/home/news_categories-list" type="button" class="btn btn-default">Back</a>
         </div>
-        <!-- /.box-footer -->
+        
     </form>
 
 </section>

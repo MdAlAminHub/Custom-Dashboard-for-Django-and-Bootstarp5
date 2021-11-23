@@ -8,7 +8,7 @@ def test(request):
 
         post = Pages()
         post.page_slug = request.POST.get('page_slug')
-        post.page_name_english = request.POST.get('')
+        post.page_name_english = request.POST.get('page_name_english')
         post.description_english = request.POST.get('description_english')
         post.page_name_bangla = request.POST.get('page_name_bangla')
         post.description_bangla = request.POST.get('description_bangla')

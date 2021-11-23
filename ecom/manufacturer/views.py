@@ -7,7 +7,8 @@ def test(request):
     if request.method == 'POST':
         post = Manufacturer()
         post.name= request.POST.get('name')
-        post.manufacturer_url = request.POST.get('manufacturer_url')
+        post.manufacturer_url = request.POST.get(
+            'manufacturer_url,  blank=True, null=True')
         post.image = request.POST.get('image')
         post.save()
         return render(request, 'manufacturer/index.html')
