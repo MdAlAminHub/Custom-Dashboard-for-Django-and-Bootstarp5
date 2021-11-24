@@ -23,7 +23,7 @@ class TaxClasses(models.Model):
 class TaxRates(models.Model):
     tax_class= models.CharField(max_length=100)
     zone = models.CharField(max_length=50)
-    tax_rate=models.IntegerField(max_length=50)
+    tax_rate=models.IntegerField()
     descriptiom = models.CharField(max_length=50)
 
 
@@ -33,7 +33,7 @@ class TaxRates(models.Model):
 class Zones(models.Model):
     country= models.CharField(max_length=100)
     country_name = models.CharField(max_length=50)
-    country_code = models.IntegerField(max_length=50)
+    country_code = models.IntegerField()
     
 
 

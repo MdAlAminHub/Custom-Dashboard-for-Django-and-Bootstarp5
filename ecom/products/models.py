@@ -11,12 +11,11 @@ class Product(models.Model):
     product_name_bangla = models.CharField(max_length=20)
     description_bangla = models.CharField(max_length=50)
     tax_class= models.CharField(max_length=50)
-    product_price= models.IntegerField(max_length=20)
-    product_weight = models.IntegerField(
-        max_length=20), models.CharField(max_length=50)
-    products_quantity=models.IntegerField(max_length=100)
-    offer_quantity_limit = models.IntegerField(max_length=100)
-    quantity_low_limit = models.IntegerField(max_length=100)
+    product_price= models.IntegerField()
+    product_weight = models.IntegerField(), models.CharField(max_length=50)
+    products_quantity=models.IntegerField()
+    offer_quantity_limit = models.IntegerField()
+    quantity_low_limit = models.IntegerField()
     image = models.ImageField(
         upload_to='static/assets/images/products_image', blank=True, null=True)
     status = models.CharField(max_length=50)

@@ -6,7 +6,7 @@
     <div class="block-header">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                <h2>Listing All Categories</h2>
+                <h2>Listing All Sub Categories</h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
                     <li class="breadcrumb-item active"></li>
@@ -45,7 +45,7 @@
                 <td>{{list.name_english}}</td>
                 <td><img src="/{{list.image}}" width="25px" alt=""></td>
                 <td><img src="/{{list.icon}}" width="25px" alt=""></td>
-                <td>{{list.main_category}}</td>
+                <td>{{list.category.name_english}}</td>
                 <td>{{list.added_last_modified_date}}</td>
                 <td>
                  <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>

@@ -3,7 +3,7 @@ from django.db import models
 
 class Packages(models.Model):
     package_name = models.CharField(max_length=50)
-    price = models.IntegerField(max_length=20)
+    price = models.IntegerField()
     image = models.ImageField(
         upload_to='static/assets/images/package_images', blank=True, null=True)
     slider = models.ImageField(
@@ -18,14 +18,10 @@ class Packages(models.Model):
 class PackagesType(models.Model):
     package_type_name= models.CharField(max_length=50)
     add_options_bangla = models.CharField(max_length=20)
-    cashback= models.IntegerField(max_length=20)
-    nb_card_limit= models.IntegerField(max_length=20)
-    monthly_target= models.IntegerField(max_length=10000)
-    # free_delivary=models.
-    # pre_order=models.
-    # msfs_pay=models.
-    # bank_pay=models.
-    # product_return=models.
+    cashback= models.IntegerField()
+    nb_card_limit= models.IntegerField()
+    monthly_target= models.IntegerField()
+   
     delivary_prority = models.CharField(max_length=50)
     image = models.ImageField(
         upload_to='static/assets/images/package_images', blank=True, null=True)

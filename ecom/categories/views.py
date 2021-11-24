@@ -48,6 +48,7 @@ def sub_test(request):
     if request.method == 'POST':
 
         post = SubCategories()
+        post.category = request.POST.get('category')
         post.name_bangla= request.POST.get('name_bangla')
         post.name_english = request.POST.get('name_english')
         post.image = request.POST.get('image')
@@ -57,8 +58,9 @@ def sub_test(request):
         return render(request, 'sub_categories/index.html')
 
     else:
-
-        return render(request, 'sub_categories/index.html')
+        lists = Categories.objects.all().order_by('-id')
+        args = {'lists': lists}
+        return render(request, 'sub_categories/index.html', args)
 
 
 def sub_list(request):

@@ -9,7 +9,7 @@ class Customers(models.Model):
     picture = models.ImageField(
         upload_to='static/assets/images/customers_pic', blank=True, null=True)
     dob= models.DateField()
-    telephone  = models.IntegerField(max_length=20)
+    telephone  = models.IntegerField()
     fax= models.CharField(max_length=50)
     email_address=models.EmailField(max_length=20)
     password = models.CharField(max_length=100)

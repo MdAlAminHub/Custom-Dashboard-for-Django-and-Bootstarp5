@@ -41,7 +41,8 @@
             <tr>
                 <td>{{list.id}}</td>
                 <td>{{list.name}}</td>
-                <td><img src="/{{list.icon}}" width="25px" alt=""></td>
+                <td><img src="{{list.icon}}" width="25px" alt=""></td>
+               
                 <td>{{list.code}}</td>
                 <td>
                  <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
