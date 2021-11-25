@@ -94,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         
 
-        'NAME': 'ecom',
+        'NAME': 'ecom2',
 
         'USER': 'postgres',
 

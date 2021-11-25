@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from .serializers import *
 from .models import *
+from django.core.files.storage import FileSystemStorage
 
 def test(request):
     if request.method == 'POST':
@@ -9,7 +10,12 @@ def test(request):
         post = Languages()
         post.name = request.POST.get('name')
         post.code = request.POST.get('code')
-        post.icon = request.POST.get('icon')
+        # post.icon = request.POST.get('icon')
+        icon = request.FILES['icon']
+        fss = FileSystemStorage()
+        file_icon = fss.save(icon.name, icon)
+        file_icon_url = fss.url(file_icon)
+        post.icon = file_icon_url
         post.directory = request.POST.get('directory ')
         post.save()
         

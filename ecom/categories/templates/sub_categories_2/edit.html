@@ -6,7 +6,7 @@
     <div class="block-header">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                <h2>Add Language</h2>
+                <h2>Edit Language</h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
                     <li class="breadcrumb-item active"></li>
@@ -30,7 +30,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Name</label>
             <div class="col-sm-10 col-md-4">
-                <input class="form-control field-validate" id="name" name="name" type="text" value="">
+                <input class="form-control field-validate" id="name" name="name" type="text" value="{{list.name}}">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Language name
                     such as "English"</span>
                 <span class="help-block hidden"></span>
@@ -40,7 +40,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Code</label>
             <div class="col-sm-10 col-md-4">
-                <input class="form-control field-validate" id="code" maxlength="2" name="code" type="text" value="">
+                <input class="form-control field-validate" id="code" maxlength="2" name="code" type="text"  value="{{list.code}}">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Language code
                     such as "en" for english.</span>
                 <span class="help-block hidden"></span>
@@ -51,7 +51,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Icon</label>
             <div class="col-sm-10 col-md-4">
-                <input id="newImage" name="icon" type="file">
+                <input id="newImage" name="newImage" type="file" >
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Language
                     Flag</span>
             </div>
@@ -60,14 +60,14 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Directory</label>
             <div class="col-sm-10 col-md-4">
-                <input class="form-control" id="directory" name="directory" type="text" value="">
+                <input class="form-control" id="directory" value="{{list.directory}}" name="directory" type="text">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Language Directory such as "english"</span>
             </div>
         </div>
         <!-- /.box-body -->
         <div class="box-footer text-center">
-            <button type="submit" class="btn btn-primary">Add Language</button>
+            <button type="submit" class="btn btn-primary">Update Language</button>
             <a href="/home/languages-list" type="button" class="btn btn-default">Back</a>
            
 
