@@ -1,24 +1,25 @@
 from django.db import models
+from categories.models import Categories,SubCategories
 
 
 class Product(models.Model):
-    category = models.CharField(max_length=50)
-    sub_category = models.CharField(max_length=20)
+    category = models.ForeignKey(Categories, on_delete=models.CASCADE)
+    sub_category = models.ForeignKey(SubCategories, on_delete=models.CASCADE)
     manufacturars= models.CharField(max_length=50)
-    special = models.CharField(max_length=20)
+    special = models.CharField(max_length=20, blank=True, null=True)
     product_name_english = models.CharField(max_length=50)
     description_english = models.CharField(max_length=50)
     product_name_bangla = models.CharField(max_length=20)
     description_bangla = models.CharField(max_length=50)
-    tax_class= models.CharField(max_length=50)
+    tax_class = models.CharField(max_length=50, blank=True, null=True)
     product_price= models.IntegerField()
     product_weight = models.IntegerField(), models.CharField(max_length=50)
-    products_quantity=models.IntegerField()
-    offer_quantity_limit = models.IntegerField()
-    quantity_low_limit = models.IntegerField()
+    products_quantity = models.IntegerField(blank=True, null=True)
+    offer_quantity_limit = models.IntegerField(blank=True, null=True)
+    quantity_low_limit = models.IntegerField(blank=True, null=True)
     image = models.ImageField(
         upload_to='static/assets/images/products_image', blank=True, null=True)
-    status = models.CharField(max_length=50)
+    status = models.CharField(max_length=50, blank=True, null=True)
     
 
     def __str__(self):

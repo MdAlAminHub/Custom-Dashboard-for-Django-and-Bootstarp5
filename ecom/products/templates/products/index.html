@@ -17,33 +17,22 @@
             <div class="col-lg-5 col-md-6 col-sm-12">
                 <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
                         class="zmdi zmdi-arrow-right"></i></button>
-                        <div class="box-footer text-right">
-                   
+                <div class="box-footer text-right">
+
                 </div>
             </div>
         </div>
     </div>
-    <form method="POST" action="" accept-charset="UTF-8"
-        class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden" value="">
-
+    <form method="POST" action="" accept-charset="UTF-8" class="form-horizontal form-validate"
+        enctype="multipart/form-data"><input name="_token" type="hidden" value="">
+        {% csrf_token %}
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Category</label>
             <div class="col-sm-10 col-md-4">
-                <select class="form-control field-validate" id="category_id" name="category_id"
-                    onchange="getSubCategory();">
-                    <option value="">Category</option>
-                    <option value="2">Meat, Fish &amp; Egg</option>
-                    <option value="3">Cooking Essential</option>
-                    <option value="4">General Grocery</option>
-                    <option value="5">Fruits &amp; Vegetables</option>
-                    <option value="6">Home Care &amp; Cleaning Utilities</option>
-                    <option value="38">Dairy &amp; Bakery</option>
-                    <option value="39">Beverages</option>
-                    <option value="40">Baby Products</option>
-                    <option value="41">Personal Care</option>
-                    <option value="42">Stationary &amp; Health Care</option>
-                    <option value="43">Household Essentials</option>
-                    <option value="44">Flowers &amp; Gift Items</option>
+                  <select class="form-control" name="category">
+                       {% for list in lists %}
+                            <option value="{{list.id}}">{{list.name_english}}</option>
+                        {% endfor %}
                 </select>
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Choose category to show sub category.</span>
@@ -55,7 +44,9 @@
             <label for="name" class="col-sm-2 col-md-3 control-label">Sub Category</label>
             <div class="col-sm-10 col-md-4">
                 <select class="form-control field-validate" name="sub_category_id" id="sub_category_id">
-                    <option value="">Choose Sub Category</option>
+                    {% for list in subCategories %}
+                            <option value="{{list.id}}">{{list.name_english}}</option>
+                        {% endfor %}
                 </select>
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Choose sub category to associate with product</span>
@@ -66,7 +57,9 @@
             <label for="name" class="col-sm-2 col-md-3 control-label">Manufacturers </label>
             <div class="col-sm-10 col-md-4">
                 <select class="form-control" name="manufacturers_id">
-                    <option value="7">NITTABAZAR</option>
+                     {% for list in manufactures %}
+                            <option value="{{list.id}}">{{list.name}}</option>
+                        {% endfor %}
                 </select><span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Choose product manufacturer/vender. You can add manufacturers from Manufacturers link.</span>
             </div>
@@ -76,8 +69,8 @@
             <label for="name" class="col-sm-2 col-md-3 control-label">Special</label>
             <div class="col-sm-10 col-md-4">
                 <select class="form-control" onchange="showSpecial()" name="isSpecial" id="isSpecial">
-                    <option value="no">No</option>
-                    <option value="yes">Yes</option>
+                    <option value="no"></option>
+                    <option value="yes"></option>
                 </select>
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Choose if this is in deals/special products. Special products belongs to deals.</span>
@@ -111,8 +104,8 @@
                 <label for="name" class="col-sm-2 col-md-3 control-label">Status</label>
                 <div class="col-sm-10 col-md-4">
                     <select class="form-control" name="status">
-                        <option value="1">Active</option>
-                        <option value="0">Inactive</option>
+                        <option value="1"></option>
+                        <option value="0"></option>
                     </select>
                     <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                         Do you want to active special product now? Acitve will show into deals and In Active will
@@ -133,8 +126,8 @@
         </div>
         <div class="form-group row ">
             <label for="name" class="col-sm-2 col-md-3 control-label">Description (English)</label>
-            <div class="col-sm-10 col-md-4">
-                <textarea class="form-control" rows="5" id="description" name="description" cols="50"></textarea>
+            <div class="col-sm-10 col-md-8">
+                <textarea class="form-control desc" rows="5" id="description" name="description" cols="50"></textarea>
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Enter Description.</span>
             </div>
@@ -152,8 +145,8 @@
         </div>
         <div class="form-group row ">
             <label for="name" class="col-sm-2 col-md-3 control-label">Description (Bangla)</label>
-            <div class="col-sm-10 col-md-4">
-                <textarea class="form-control" rows="5" id="description" name="description" cols="50"></textarea>
+            <div class="col-sm-10 col-md-8">
+                <textarea class="form-control descbn" rows="5" id="description" name="description" cols="50"></textarea>
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Enter Description.</span>
             </div>
@@ -167,8 +160,8 @@
             <label for="name" class="col-sm-2 col-md-3 control-label">Tax Class </label>
             <div class="col-sm-10 col-md-4">
                 <select class="form-control field-validate" name="tax_class_id">
-                    <option selected="">Select Tax Class</option>
-                    <option value="1">Sale Tax</option>
+                    <option selected=""></option>
+                    <option value="1"></option>
                 </select>
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Choose tax class in which this product belongs. You can add them from Tax / Location link.
@@ -258,7 +251,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Image</label>
             <div class="col-sm-10 col-md-4">
-                <input id="products_image" class="field-validate" name="products_image" type="file">
+                <input id="products_image" class="field-validate" name="image" type="file">
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Upload default product image.</span>
             </div>
@@ -268,8 +261,8 @@
             <label for="name" class="col-sm-2 col-md-3 control-label">Status </label>
             <div class="col-sm-10 col-md-4">
                 <select class="form-control" name="products_status">
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
+                    <option value="1"></option>
+                    <option value="0"></option>
                 </select>
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                     Select status Active or Inactive.</span>
@@ -286,5 +279,43 @@
     </form>
 
 </section>
+
+{% block extra_scripts %}
+
+<script src="{% static 'assets/plugins/ckeditor/ckeditor.js'%}"></script>
+<script>
+    var toobarConfig = [{
+            name: 'document',
+            groups: ['mode', 'document']
+        },
+        {
+            name: 'clipboard',
+            groups: ['clipboard', 'undo']
+        },
+        '/',
+        {
+            name: 'basicstyles',
+            groups: ['basicstyles', 'cleanup']
+        },
+        {
+            name: 'links'
+        }
+    ];
+
+    cl = document.querySelector('.desc');
+    clbn = document.querySelector('.descbn');
+
+    window.onload = function () {
+        CKEDITOR.replace(cl, {
+            toolbarGroups: toobarConfig
+        });
+
+        CKEDITOR.replace(clbn, {
+            toolbarGroups: toobarConfig
+        });
+    }
+</script>
+
+{% endblock extra_scripts %}
 
 {% endblock main_content %}

@@ -32,7 +32,7 @@ class SubCategories(models.Model):
    
    
 class SubCategories_2(models.Model):
-    category = models.ForeignKey(Categories, on_delete=models.CASCADE)
+    category = models.ForeignKey(SubCategories, on_delete=models.CASCADE)
     name_english = models.CharField(max_length=70)
     name_bangla = models.CharField(max_length=70)
 
