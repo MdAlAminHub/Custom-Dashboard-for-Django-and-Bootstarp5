@@ -32,17 +32,17 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>image</th>
-                <th>Other Info</th>
+                <th>Manufacturer URL</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             {% for list in lists%}
             <tr>
-                <td>1</td>
+                <td>{{list.id}}</td>
                 <td>{{list.name}}</td>
-                <td>{{list.manufacturer_url}}</td>
                 <td>{{list.image}}</td>
+                <td>{{list.manufacturer_url}}</td>
                 <td>
                  <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
                  <form action="{% url 'deletedata'  list.id %}" method="post" class="d-inline">

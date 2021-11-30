@@ -33,7 +33,7 @@
                 <th>Name</th>
                 <th>Image</th>
                 <th>Icon</th>
-                <th>Added/Last modified date </th>
+                <th>Created and Updated Date</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -44,7 +44,14 @@
                 <td>{{list.name_english}}</td>
                 <td><img src="{{list.image}}" width="25px" alt=""></td>
                 <td><img src="{{list.icon}}" width="25px" alt=""></td>
-                <td>{{list.added_last_modified_date}}</td> 
+                <td>
+                    <div class="d-block small">
+                        <strong>Created:</strong> {{list.created}}
+                    </div>
+                    <div class="d-block small">
+                        <strong>Updated:</strong> {{list.updated}}
+                    </div>
+                </td>
                 
                 <td>
                  <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>

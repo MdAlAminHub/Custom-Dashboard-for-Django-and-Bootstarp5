@@ -21,6 +21,8 @@ def test(request):
         file_icon = fss.save(icon.name, icon)
         file_icon_url = fss.url(file_icon)
         post.icon = file_icon_url
+        post.created = request.POST.get('created')
+        post.updated = request.POST.get('updated')
         post.save()
 
         return render(request, 'categories/index.html')
@@ -60,6 +62,8 @@ def sub_test(request):
         file_icon = fss.save(icon.name, icon)
         file_icon_url = fss.url(file_icon)
         post.icon = file_icon_url
+        post.created = request.POST.get('created')
+        post.updated = request.POST.get('updated')
         post.save()
     
 
@@ -91,6 +95,8 @@ def sub_test_2(request):
         file_icon = fss.save(icon.name, icon)
         file_icon_url = fss.url(file_icon)
         post.icon = file_icon_url
+        post.created = request.POST.get('created')
+        post.updated = request.POST.get('updated')
         post.save()
 
     lists = Categories.objects.all().order_by('-id')

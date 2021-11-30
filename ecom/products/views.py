@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.core.files.storage import FileSystemStorage
 from manufacturer.models import Manufacturer
+from tax_location.models import TaxClasses
 
 def TEST(request):
 
@@ -10,7 +11,7 @@ def TEST(request):
         # table coulumn name = form input name
         post.category_id = request.POST.get('category')  
         post.sub_category_id = request.POST.get('sub_category_id')
-        post.manufacturars = request.POST.get('manufacturars')
+        post.manufacturars = request.POST.get('manufacturers_id')
         post.special = request.POST.get('special')
         post.product_name_english = request.POST.get('product_name_english')
         post.description_english = request.POST.get('description_english')
@@ -29,6 +30,9 @@ def TEST(request):
         file_url = fss.url(file)
         post.image = file_url
         post.status = request.POST.get('status')
+        post.created = request.POST.get('created')
+        post.updated = request.POST.get('updated')
+        
         post.save()
         
         # return render(request, 'products/index.html')
@@ -38,11 +42,14 @@ def TEST(request):
     lists = Categories.objects.all()
     subCategories = SubCategories.objects.all()
     manufactures = Manufacturer.objects.all()
+    taxes = TaxClasses.objects.all()
     
     args = {
         'lists': lists,
         'subCategories': subCategories,
-        'manufactures': manufactures
+        'manufactures': manufactures,
+        'taxes': taxes,
+    
     }
     
     return render(request, 'products/index.html', args)

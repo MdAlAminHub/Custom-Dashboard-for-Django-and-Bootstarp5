@@ -32,7 +32,7 @@
                 <th>ID</th>
                 <th>Image</th>
                 <th>Product Description</th>
-                <th>Added/Last Modified Date</th>
+                <th>Created and Updated Date</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -41,9 +41,23 @@
             <tr>
                 <td>{{list.id}}</td>
                
-                <td><img src="/{{list.image}}" width="25px" alt=""></td>
-                <td>{{list.product_description}}</td>
-                <td>{{list.added_last_modified_date}}</td>
+                <td><img src="{{list.image}}" width="25px" alt=""></td>
+                
+                <td>
+                    {% autoescape off %}
+                     {{list.description_english}}
+                    {% endautoescape %}
+
+                </td>
+
+                <td>
+                    <div class="d-block small">
+                        <strong>Created:</strong> {{list.created}}
+                    </div>
+                    <div class="d-block small">
+                        <strong>Updated:</strong> {{list.updated}}
+                    </div>
+                </td>
                 <td>
                  <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
                  <form action="{% url 'deletedata'  list.id %}" method="post" class="d-inline">

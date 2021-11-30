@@ -1,4 +1,5 @@
 from django.db import models
+from .models import *
 
 
 class Countries(models.Model):
@@ -12,8 +13,10 @@ class Countries(models.Model):
 
 
 class TaxClasses(models.Model):
-    title= models.CharField(max_length=100)
-    descriptiom = models.CharField(max_length=50)
+    title = models.CharField(max_length=100, blank=True, null=True)
+    description = models.CharField(max_length=50, blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     
 
     def __str__(self):

@@ -1,5 +1,6 @@
 from django.shortcuts import render
-# from .models import *
+from .models import *
+
 
 
 def test(request):
@@ -7,7 +8,24 @@ def test(request):
 
 
 def sub_test(request):
-    return render(request, 'tax_classes/index.html')
+    if request.method == 'POST':
+
+        post = TaxClasses()
+        post.title = request.POST.get('title')
+        post.description= request.POST.get('description')
+        post.created = request.POST.get('created')
+        post.updated = request.POST.get('updated')
+
+        post.save()
+        
+    lists = TaxClasses.objects.all().order_by('-id')
+    args = {'lists': lists}
+    return render(request, 'tax_classes/index.html', args)
+
+def sub_list(request):
+    lists = TaxClasses.objects.all()
+    args = {'lists': lists}
+    return render(request,'tax_classes/list.html', args)
 
 
 def tax_rates(request):
@@ -18,9 +36,3 @@ def zones(request):
     return render(request, 'zones/index.html')
 
 
-# def rahim(request):
-#     return render(request, 'zones/index.html')
-
-
-# def test(request):
-#     return render(request, 'sub_categories/index.html')

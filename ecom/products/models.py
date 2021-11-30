@@ -8,9 +8,9 @@ class Product(models.Model):
     manufacturars= models.CharField(max_length=50)
     special = models.CharField(max_length=20, blank=True, null=True)
     product_name_english = models.CharField(max_length=50)
-    description_english = models.CharField(max_length=50)
+    description_english = models.TextField()
     product_name_bangla = models.CharField(max_length=20)
-    description_bangla = models.CharField(max_length=50)
+    description_bangla = models.TextField()
     tax_class = models.CharField(max_length=50, blank=True, null=True)
     product_price= models.IntegerField()
     product_weight = models.IntegerField(), models.CharField(max_length=50)
@@ -20,6 +20,8 @@ class Product(models.Model):
     image = models.ImageField(
         upload_to='static/assets/images/products_image', blank=True, null=True)
     status = models.CharField(max_length=50, blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     
 
     def __str__(self):
