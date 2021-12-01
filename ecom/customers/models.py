@@ -4,7 +4,7 @@ from django.db import models
 class Customers(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=20)
-    gender  = models.CharField(max_length=20)
+    gender = models.CharField(max_length=20, blank=True, null=True)
 
     picture = models.ImageField(
         upload_to='static/assets/images/customers_pic', blank=True, null=True)
@@ -13,7 +13,7 @@ class Customers(models.Model):
     fax= models.CharField(max_length=50)
     email_address=models.EmailField(max_length=20)
     password = models.CharField(max_length=100)
-    status=models.CharField(max_length=50)
+    status = models.CharField(max_length=50, blank=True, null=True)
 
   
     def __str__(self):

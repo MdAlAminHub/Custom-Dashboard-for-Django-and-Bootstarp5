@@ -20,8 +20,8 @@ class News(models.Model):
 class NewsCategories(models.Model):
     name_english = models.CharField(max_length=100)
     name_bangla = models.CharField(max_length=50)
-    # added_last_modified_date = models.DateTimeField(
-    #     auto_now_add=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     image = models.ImageField(
         upload_to='static/assets/images/news_images', blank=True, null=True)
     

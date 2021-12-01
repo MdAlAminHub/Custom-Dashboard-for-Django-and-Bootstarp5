@@ -52,6 +52,18 @@
                     Choose sub category to associate with product</span>
             </div>
         </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">ChildCategory</label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control field-validate" name="subcategories_2_id" id="sub_category2_id">
+                    {% for list in subcategories_2 %}
+                            <option value="{{list.id}}">{{list.name_english}}</option>
+                        {% endfor %}
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose sub category2 to associate with product</span>
+            </div>
+        </div> 
 
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Manufacturers </label>

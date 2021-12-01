@@ -5,7 +5,7 @@ class Manufacturer(models.Model):
     name = models.CharField(max_length=50)
     manufacturer_url = models.CharField(max_length=50, blank=True, null=True)
     image = models.ImageField(
-        upload_to='static/assets/images/manufacture_images', blank=True, null=True)
+        upload_to='static/media/manufacture_images', blank=True, null=True)
     
 
     def __str__(self):

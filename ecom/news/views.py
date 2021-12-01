@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .serializers import *
 from .models import *
+from django.core.files.storage import FileSystemStorage
 
 
 
@@ -20,7 +21,15 @@ def sub_test(request):
         post = NewsCategories()
         post.name_english = request.POST.get('name_english')
         post.name_bangla = request.POST.get('name_bangla')
-        post.image = request.POST.get('image')
+        
+        image = request.FILES['image']
+        fss = FileSystemStorage()
+        file_image = fss.save(image.name, image)
+        file_image_url = fss.url(file_image)
+        post.image = file_image_url
+        
+        post.created = request.POST.get('created')
+        post.updated = request.POST.get('updated')
        
         post.save()
 

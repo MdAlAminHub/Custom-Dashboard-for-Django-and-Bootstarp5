@@ -25,7 +25,7 @@ class Product(models.Model):
     
 
     def __str__(self):
-       return self.name
+       return self.category.name
    
 class ProductAttributes(models.Model):
     add_options_english = models.CharField(max_length=50)

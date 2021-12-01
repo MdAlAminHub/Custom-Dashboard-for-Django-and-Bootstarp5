@@ -3,4 +3,5 @@ from customers import views
 
 urlpatterns = [
     path('customers',  views.test, name='home'),
+    path('customers-list',  views.list, name='c_list'),
 ]

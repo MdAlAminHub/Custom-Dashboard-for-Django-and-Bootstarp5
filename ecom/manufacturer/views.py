@@ -12,7 +12,7 @@ def test(request):
         # table coulumn name = form input name
         post.name = request.POST.get('name')
         post.manufacturer_url = request.POST.get('manufacturers_url')
-       
+        
         image = request.FILES['image']
         fss = FileSystemStorage()
         file_image = fss.save(image.name, image)

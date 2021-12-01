@@ -9,12 +9,11 @@ def test(request):
         post = Brand()
         post.brand_title = request.POST.get('brand_title')
         # post.image = request.POST.get('image')
-        image= request.FILES['image']
+        image = request.FILES['image']
         fss = FileSystemStorage()
         file_image = fss.save(image.name, image)
         file_image_url = fss.url(file_image)
         post.image = file_image_url
-        
         post.save()
 
         return render(request, 'brand/index.html')
@@ -28,3 +27,9 @@ def list(request):
     lists = Brand.objects.all()
     args = {'lists': lists}
     return render(request, 'brand/list.html', args)
+
+
+
+  
+
+
