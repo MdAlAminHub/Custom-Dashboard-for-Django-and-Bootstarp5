@@ -1,10 +1,12 @@
 from django.db import models
-from categories.models import Categories,SubCategories
+from categories.models import Categories, SubCategories, SubCategories_2
 
 
 class Product(models.Model):
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
-    sub_category = models.ForeignKey(SubCategories, on_delete=models.CASCADE)
+    subcategory = models.ForeignKey(SubCategories, on_delete=models.CASCADE, blank=True, null=True)
+    subcategory_2 = models.ForeignKey(
+        SubCategories_2, on_delete=models.CASCADE, blank=True, null=True)
     manufacturars= models.CharField(max_length=50)
     special = models.CharField(max_length=20, blank=True, null=True)
     product_name_english = models.CharField(max_length=50)

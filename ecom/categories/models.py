@@ -31,11 +31,11 @@ class SubCategories(models.Model):
    
 
     def __str__(self):
-       return self.category
+       return self.name_english
    
    
 class SubCategories_2(models.Model):
-    category = models.ForeignKey(SubCategories, on_delete=models.CASCADE)
+    subcategory = models.ForeignKey(SubCategories, on_delete=models.CASCADE)
     name_english = models.CharField(max_length=70)
     name_bangla = models.CharField(max_length=70)
 
@@ -47,7 +47,7 @@ class SubCategories_2(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-       return self.category
+       return self.name_english
    
    
 

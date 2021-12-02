@@ -1,16 +1,19 @@
 from django.shortcuts import render
+
+from categories.models import Categories, SubCategories, SubCategories_2
 from .models import *
 from django.core.files.storage import FileSystemStorage
 from manufacturer.models import Manufacturer
 from tax_location.models import TaxClasses
-
 def TEST(request):
 
     if request.method == 'POST':
         post = Product()
         # table coulumn name = form input name
         post.category_id = request.POST.get('category')  
-        post.sub_category_id = request.POST.get('sub_category_id')
+        post.subcategory_id = request.POST.get('subcategory')
+       
+        post.subcategory_2_id = request.POST.get('sub_category2_id')
         post.manufacturars = request.POST.get('manufacturers_id')
         post.special = request.POST.get('special')
         post.product_name_english = request.POST.get('product_name_english')
@@ -35,7 +38,7 @@ def TEST(request):
         
         post.save()
         
-        # return render(request, 'products/index.html')
+        # return render(request, 'products/index.html')+
     
     # else:
         
@@ -43,12 +46,15 @@ def TEST(request):
     subCategories = SubCategories.objects.all()
     manufactures = Manufacturer.objects.all()
     taxes = TaxClasses.objects.all()
+    subCategories_2 = SubCategories_2.objects.all()
+
     
     args = {
         'lists': lists,
         'subCategories': subCategories,
         'manufactures': manufactures,
         'taxes': taxes,
+        'subCategories_2': subCategories_2
     
     }
     

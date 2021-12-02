@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.shortcuts import render, HttpResponseRedirect
 from .models import *
 from django.core.files.storage import FileSystemStorage
@@ -84,7 +83,7 @@ def sub_list(request):
 def sub_test_2(request):
     if request.method == 'POST':
         post = SubCategories_2()
-        post.category_id = request.POST.get('category')
+        post.subcategory_id = request.POST.get('subcategory')
         post.name_bangla = request.POST.get('name_bangla')
         post.name_english = request.POST.get('name_english')
         
@@ -104,7 +103,7 @@ def sub_test_2(request):
         post.updated = request.POST.get('updated')
         post.save()
 
-    lists = SubCategories_2.objects.all().order_by('-id')
+    lists = SubCategories.objects.all().order_by('-id')
     args = {'lists': lists}
     return render(request, 'sub_categories_2/index.html', args)
 
