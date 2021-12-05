@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block main_content %}
 <section class="content">
     <div class="block-header">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                <h2>Pages List</h2>
+                <h2> Special Products </h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
                     <li class="breadcrumb-item active"></li>
@@ -16,8 +17,8 @@
                 <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
                         class="zmdi zmdi-arrow-right"></i></button>
                 <div class="box-footer text-right">
-                    <a href="/home/pages">
-                        <button type="button" class="btn btn-primary">Add Pages</button>
+                    <a href="/home/special_product">
+                        <button type="button" class="btn btn-primary">Add Special Products</button>
                     </a>
                 </div>
             </div>
@@ -25,12 +26,11 @@
         </div>
     </div>
 
-    <table id="example1" class="table table-bordered table-striped">
+    <table style="width:100%" id="example1" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Slug</th>
+                <th>Products</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -39,24 +39,28 @@
             {% for list in lists%}
             <tr>
                 <td>{{list.id}}</td>
-                <td>{{list.page_slug}}</td>
-                <td>{{list.page_name_english}}</td>
-                <td>{{list.page_name_bangla}}</td>
+               
+                <td>
+                    {% autoescape off %}
+                     {{list.products}}
+                    {% endautoescape %}
+
+                </td>
+                <td>{{list.status}}</td>
+
+              
                 <td>
                  <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
-                  <form action="{% url 'deletedata'  list.id %}" method="post" class="d-inline">
+                 <form action="{% url 'deletedata'  list.id %}" method="post" class="d-inline">
                     {% csrf_token%}
                    <input type="submit"  class="btn btn-danger" value="Delete">
                  </form>
-                 {% comment %} <form action="{% url 'delete_data'  list.id %}" method="post" class="d-inline">
-                    {% csrf_token%}
-                   <input type="submit"  class="btn btn-danger" value="Delete">
-                 </form>  {% endcomment %}
                 </td>
+
             </tr>
             {% endfor %}
-        </tbody>
 
+        </tbody>
     </table>
 
 

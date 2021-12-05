@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render ,HttpResponseRedirect
+
 from .serializers import *
 from .models import *
 from django.core.files.storage import FileSystemStorage
@@ -27,6 +28,13 @@ def list(request):
     lists = Brand.objects.all()
     args = {'lists': lists}
     return render(request, 'brand/list.html', args)
+
+
+def delete_data(request, id):
+    if request.method == 'POST':
+        pi = Brand.objects.get(pk=id)
+        pi.delete()
+        return HttpResponseRedirect('/home/brand-list')
 
 
 

@@ -39,7 +39,7 @@ def update_data(request ,id):
         list.name = request.POST.get('name')
         list.code = request.POST.get('code')
         list.icon = request.POST.get('icon')
-        list.directory = request.POST.get('directory ')
+        list.directory = request.POST.get('directory')
         list.save()
     return render(request, 'languages/edit.html', {'id': id, 'list': list})
 

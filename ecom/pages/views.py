@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from .serializers import *
 from .models import *
 
@@ -26,3 +26,16 @@ def list(request):
     lists = Pages.objects.all()
     args = {'lists': lists}
     return render(request, 'Pages/list.html', args)
+
+
+# def delete_data(request, id ):
+#     if request.method == 'POST':
+#         pi = Pages.objects.get(pk=id)
+#         pi.delete()
+#         return HttpResponseRedirect('/home/Pages-list')
+
+def delete_data(request, id):
+    if request.method == 'POST':
+        pi = Pages.objects.get(pk=id)
+        pi.delete()
+        return HttpResponseRedirect('/home/Pages-list')

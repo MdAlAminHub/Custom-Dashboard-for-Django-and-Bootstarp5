@@ -25,9 +25,12 @@ class TaxClasses(models.Model):
 
 class TaxRates(models.Model):
     tax_class= models.CharField(max_length=100)
-    zone = models.CharField(max_length=50)
+    # zone = models.CharField(max_length=50)
     tax_rate=models.IntegerField()
     descriptiom = models.CharField(max_length=50)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
 
 
     def __str__(self):

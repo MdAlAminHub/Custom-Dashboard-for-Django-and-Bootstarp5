@@ -32,6 +32,12 @@ def tax_rates(request):
     return render(request, 'tax_rates/index.html')
 
 
+def sub_list_2(request):
+    # lists = TaxRates.objects.all()
+    # # args = {'lists': lists}
+    return render(request, 'tax_classes/list.html')
+
+
 def zones(request):
     return render(request, 'zones/index.html')
 

@@ -39,5 +39,5 @@ def delete_data(request, id):
     if request.method == 'POST':
         pi = Manufacturer.objects.get(pk=id)
         pi.delete()
-        return HttpResponseRedirect('/home/languages-list')
+        return HttpResponseRedirect('/home/manufacturer-list')
 

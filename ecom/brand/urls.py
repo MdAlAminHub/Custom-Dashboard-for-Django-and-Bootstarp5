@@ -5,6 +5,8 @@ from brand import views
 
 urlpatterns = [
     path('brand',  views.test, name='home'),
-    path('brand-list',  views.list, name='b_list'), 
+    path('brand-list',  views.list, name='b_list'),
+    path('dalete/<int:id>/',  views.delete_data, name="deletedata"),
+     
 ]
 
