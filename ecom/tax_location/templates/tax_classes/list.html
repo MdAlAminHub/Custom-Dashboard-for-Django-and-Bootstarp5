@@ -41,14 +41,14 @@
             <tr>
                 <td>{{list.id}}</td>
                 <td>{{list.title}}</td>
-             
+
                 <td>
                     {% autoescape off %}
-                       {{list.description}}
+                    {{list.description}}
                     {% endautoescape %}
-                    
+
                 </td>
-                 <td>
+                <td>
                     <div class="d-block small">
                         <strong>Created:</strong> {{list.created}}
                     </div>
@@ -57,11 +57,11 @@
                     </div>
                 </td>
                 <td>
-                 <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
-                 <form action="{% url 'deletedata'  list.id %}" method="post" class="d-inline">
-                    {% csrf_token%}
-                   <input type="submit"  class="btn btn-danger" value="Delete">
-                 </form>
+                    <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{% url 'deletedata'  list.id %}" method="post" class="d-inline">
+                        {% csrf_token%}
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                    </form>
                 </td>
 
             </tr>

@@ -17,7 +17,7 @@
                 <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
                         class="zmdi zmdi-arrow-right"></i></button>
                 <div class="box-footer text-right">
-                    <a href="/home/brand">
+                    <a href="/home/tax_rates">
                         <button type="button" class="btn btn-primary">Add Tax Rates</button>
                     </a>
                 </div>
@@ -40,9 +40,16 @@
             {% for list in lists%}
             <tr>
                 <td>{{list.id}}</td>
-                <td>{{list.tax_classes}}</td>
-                <td>{{list.tax_rates}}</td>
-                <td>{{list.created_and_updated_date}}</td>
+                <td>{{list.tax_class}}</td>
+                <td>{{list.tax_rate}}</td>
+                <td>
+                    <div class="d-block small">
+                        <strong>Created:</strong> {{list.created}}
+                    </div>
+                    <div class="d-block small">
+                        <strong>Updated:</strong> {{list.updated}}
+                    </div>
+                </td>
 
                 <td>
                  <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>

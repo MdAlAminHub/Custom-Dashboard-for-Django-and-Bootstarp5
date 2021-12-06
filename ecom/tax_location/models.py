@@ -2,14 +2,14 @@ from django.db import models
 from .models import *
 
 
-class Countries(models.Model):
-    country_name = models.CharField(max_length=50)
-    iso_code2= models.CharField(max_length=20)
-    iso_code3 = models.CharField(max_length=20)
+# class Countries(models.Model):
+#     country_name = models.CharField(max_length=50)
+#     iso_code2= models.CharField(max_length=20)
+#     iso_code3 = models.CharField(max_length=20)
 
    
-    def __str__(self):
-       return self.country_name
+#     def __str__(self):
+#        return self.country_name
 
 
 class TaxClasses(models.Model):
@@ -24,10 +24,12 @@ class TaxClasses(models.Model):
 
 
 class TaxRates(models.Model):
-    tax_class= models.CharField(max_length=100)
+    #table column name = form input name 
+    tax_classes = models.ForeignKey(TaxClasses, on_delete=models.CASCADE)
+    tax_class = models.CharField(max_length=50)
     # zone = models.CharField(max_length=50)
     tax_rate=models.IntegerField()
-    descriptiom = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
@@ -36,12 +38,12 @@ class TaxRates(models.Model):
     def __str__(self):
        return self.tax_class
    
-class Zones(models.Model):
-    country= models.CharField(max_length=100)
-    country_name = models.CharField(max_length=50)
-    country_code = models.IntegerField()
+# class Zones(models.Model):
+#     country= models.CharField(max_length=100)
+#     country_name = models.CharField(max_length=50)
+#     country_code = models.IntegerField()
     
 
 
-    def __str__(self):
-       return self.country
+#     def __str__(self):
+#        return self.country
