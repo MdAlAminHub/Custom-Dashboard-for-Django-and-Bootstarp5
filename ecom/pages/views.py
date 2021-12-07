@@ -12,6 +12,7 @@ def test(request):
         post.description_english = request.POST.get('description_english')
         post.page_name_bangla = request.POST.get('page_name_bangla')
         post.description_bangla = request.POST.get('description_bangla')
+        post.status = request.POST.get('status')
       
         post.save()
 
@@ -28,11 +29,7 @@ def list(request):
     return render(request, 'Pages/list.html', args)
 
 
-# def delete_data(request, id ):
-#     if request.method == 'POST':
-#         pi = Pages.objects.get(pk=id)
-#         pi.delete()
-#         return HttpResponseRedirect('/home/Pages-list')
+
 
 def delete_data(request, id):
     if request.method == 'POST':

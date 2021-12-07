@@ -15,6 +15,7 @@ def test(request):
         file_image = fss.save(image.name, image)
         file_image_url = fss.url(file_image)
         post.image = file_image_url
+        post.status = request.POST.get('status')
         post.save()
 
         return render(request, 'brand/index.html')

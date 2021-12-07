@@ -5,6 +5,13 @@ class Brand(models.Model):
     image = models.ImageField(
         upload_to='static/assets/images/brand', blank=True, null=True)
     
+    page_choice = (
+        ('Active', 'Active'),
+        ('Inactive', 'Inactive'),
+    )
+    status = models.CharField(max_length=50, choices=page_choice)
+
+    
    
 
     def __str__(self):

@@ -7,6 +7,12 @@ class Pages(models.Model):
     description_english = models.CharField( max_length=20, blank=True, null=True)
     page_name_bangla = models.CharField(max_length=20)
     description_bangla = models.CharField(max_length=20, blank=True, null=True)
+    
+    page_choice = (
+        ('Active', 'Active'),
+        ('Inactive', 'Inactive'),
+    )
+    status = models.CharField(max_length=50, choices=page_choice)
 
 
     def __str__(self):

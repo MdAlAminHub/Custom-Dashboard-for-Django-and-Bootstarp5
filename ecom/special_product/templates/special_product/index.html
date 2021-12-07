@@ -23,16 +23,28 @@
     <form method="POST" action="" accept-charset="UTF-8"
         class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden" value="">
      
-
+            {% csrf_token %}
          <div class="form-group  row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Products</label>
             <div class="col-sm-10 col-md-8">
-                <textarea class="form-control desc" id="tax_class_description" name="description" cols="50"
+                <textarea class="form-control desc" id="tax_class_description" name="products" cols="50"
                     rows="10"></textarea>
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter product
                     .</span>
             </div>
         </div>
+         <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Status </label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control" name="status">
+                    <option >Active</option>
+                    <option >Inactive</option>
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Select status Active or Inactive.</span>
+            </div>
+        </div>
+
         <!-- /.box-body -->
         <div class="box-footer text-center">
             <button type="submit" class="btn btn-primary">Save </button>

@@ -20,18 +20,18 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="https://admin/updatePaymentSetting" accept-charset="UTF-8"
+    <form method="POST" action="" accept-charset="UTF-8"
         class="form-horizontal form-validate" enctype="multipart/form-data"><input name="_token" type="hidden" value="">
 
         <div class="form-group row">
             <label for="shippingEnvironment" class="col-sm-2 col-md-3 control-label" style="">Payment Metods</label>
             <div class="col-sm-10 col-md-4">
                 <label class=" control-label">
-                    <input type="checkbox" name="brantree_active" value="1" class="checkboxess"> &nbsp;Braintree
+                    <input type="checkbox" name="brantree_active" value="1" class="checkboxess"> &nbsp;Bikash
                 </label><br>
 
                 <label class=" control-label">
-                    <input type="checkbox" name="stripe_active" value="1" class="checkboxess"> &nbsp;Stripe
+                    <input type="checkbox" name="stripe_active" value="1" class="checkboxess"> &nbsp;Rocket
                 </label><br>
 
 
@@ -41,9 +41,9 @@
                 </label><br>
 
 
-                <label class=" control-label">
+                {% comment %} <label class=" control-label">
                     <input type="checkbox" name="paypal_status" value="1" class="checkboxess "> &nbsp;Paypal
-                </label>
+                </label> {% endcomment %}
 
               
             </div>
@@ -51,7 +51,7 @@
         <br>
       
         <div class="form-group row">
-            <label for="shippingEnvironment" class="col-sm-2 col-md-3 control-label" style="">Braintree Account Type</label>
+            <label for="shippingEnvironment" class="col-sm-2 col-md-3 control-label" style="">Bikash Account Type</label>
             <div class="col-sm-10 col-md-4">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
@@ -68,11 +68,11 @@
         </div>
 
         <div class="form-group row">
-            <label for="name" class="col-sm-2 col-md-3 control-label">Braintree</label>
+            <label for="name" class="col-sm-2 col-md-3 control-label">Bikash</label>
             <div class="col-sm-10 col-md-4">
                 <input class="form-control field-validate" id="braintree_name" name="braintree_name" type="text"
-                    value="Braintree">
-                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Braintre
+                    value="Bikash">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Bikash
                     payment Merchant ID.</span>
             </div>
         </div>
@@ -82,7 +82,7 @@
             <div class="col-sm-10 col-md-4">
                 <input class="form-control field-validate" id="braintree_merchant_id" name="braintree_merchant_id"
                     type="text" value="">
-                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Braintre
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Bikash
                     payment Merchant ID.</span>
             </div>
         </div>
@@ -91,7 +91,7 @@
             <div class="col-sm-10 col-md-4">
                 <input class="form-control field-validate" id="braintree_public_key" name="braintree_public_key"
                     type="text" value="">
-                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Braintre
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Bikash
                     payment Public Key.</span>
             </div>
         </div>
@@ -100,13 +100,13 @@
             <div class="col-sm-10 col-md-4">
                 <input class="form-control field-validate" id="braintree_private_key" name="braintree_private_key"
                     type="text" value="">
-                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Braintre
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Bikash
                     payment Private Key.</span>
             </div>
         </div>
         <hr>
         <div class="form-group row">
-            <label for="shippingEnvironment" class="col-sm-2 col-md-3 control-label" style="">Stripe Enviroment</label>
+            <label for="shippingEnvironment" class="col-sm-2 col-md-3 control-label" style="">Rocket Account Type</label>
             <div class="col-sm-10 col-md-4">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
@@ -124,15 +124,42 @@
         </div>
 
         <div class="form-group row">
-            <label for="name" class="col-sm-2 col-md-3 control-label">Stripe</label>
+            <label for="name" class="col-sm-2 col-md-3 control-label">Rocket</label>
             <div class="col-sm-10 col-md-4">
                 <input class="form-control field-validate" id="stripe_name" name="stripe_name" type="text"
-                    value="Stripe">
-                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Stripe</span>
+                    value="Rocket">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Rocket Payment Marchant ID </span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Merchant ID</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="braintree_merchant_id" name="braintree_merchant_id"
+                    type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Rocket
+                    payment Merchant ID.</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Public Key</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="braintree_public_key" name="braintree_public_key"
+                    type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Rocket
+                    payment Public Key.</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Private Key</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control field-validate" id="braintree_private_key" name="braintree_private_key"
+                    type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter Rocket
+                    payment Private Key.</span>
             </div>
         </div>
 
-        <div class="form-group row">
+        {% comment %} <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Secret Key</label>
             <div class="col-sm-10 col-md-4">
                 <input class="form-control field-validate" id="secret_key" name="secret_key" type="text" value="">
@@ -149,11 +176,11 @@
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter stripe
                     publishable key.</span>
             </div>
-        </div>
+        </div> {% endcomment %}
 
         <hr>
 
-        <div class="form-group row">
+        {% comment %} <div class="form-group row">
             <label for="shippingEnvironment" class="col-sm-2 col-md-3 control-label" style="">Paypal Enviroment</label>
             <div class="col-sm-10 col-md-4">
                 <div class="form-check form-check-inline">
@@ -188,7 +215,7 @@
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Enter paypal id
                     for transaction.</span>
             </div>
-        </div>
+        </div> {% endcomment %}
 
         <hr>
 
@@ -203,7 +230,7 @@
         </div>
         <hr>
 
-        <div class="form-group row">
+        {% comment %} <div class="form-group row">
             <label for="name" class="col-sm-2 col-md-3 control-label">Payment in Currency</label>
             <div class="col-sm-10 col-md-4">
                 <input class="form-control field-validate" id="payment_currency" name="payment_currency" type="text"
@@ -211,14 +238,14 @@
                 <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">Please enter your
                     payment currency name e.g: USD.</span>
             </div>
-        </div>
+        </div> {% endcomment %}
 
 
 
         <!-- /.box-body -->
         <div class="box-footer text-center">
             <button type="submit" class="btn btn-primary payment-checkbox">Update </button>
-            <a href="https://admin/dashboard/this_month" type="button" class="btn btn-default">Back</a>
+            <a href="" type="button" class="btn btn-default">Back</a>
         </div>
         <!-- /.box-footer -->
     </form>

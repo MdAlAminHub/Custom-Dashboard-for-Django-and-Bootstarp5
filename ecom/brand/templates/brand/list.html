@@ -42,7 +42,7 @@
                 <td>{{list.id}}</td>
                 <td>{{list.brand_title}}</td>
                 <td><img src="{{list.image}}" width="25px" alt=""></td>
-                <td>{{list.slug}}</td>
+                <td class="btn btn-success btn-sm">{{list.status}}</td>
 
                 <td>
                  <a href="{% url 'updatedata' list.id %}" class="btn btn-warning btn-sm">Edit</a>
