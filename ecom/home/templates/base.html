@@ -21,20 +21,7 @@
 
 <body class="theme-blush">
 
-    {% comment %}
-    <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="m-t-30"><img class="zmdi-hc-spin" src="{% static 'assets/images/loader.svg' %}" width="48"
-                    height="48" alt="Aero"></div>
-            <p>Please wait...</p>
-        </div>
-    </div>
 
-    <!-- Overlay For Sidebars -->
-    <div class="overlay"></div> {% endcomment %}
-
-    <!-- Main Search -->
     <div id="search">
         <button id="close" type="button" class="close btn btn-primary btn-icon btn-icon-mini btn-round">x</button>
         <form>
@@ -46,17 +33,17 @@
     {% include 'home/includes/righticonslidebar.html' %}
     {% include 'home/includes/leftslidebar.html' %}
     {% include 'home/includes/rightslidebar.html' %}
-    {% comment %} {% include 'home/includes/maincontent.html' %} {% endcomment %}
+
 
     {% block main_content %}{% endblock main_content %}
 
     <script src="{% static 'assets/bundles/libscripts.bundle.js'%}"></script>
-    <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
-    <script src="{% static 'assets/bundles/vendorscripts.bundle.js'%}"></script>
-    <!-- slimscroll, waves Scripts Plugin Js -->
 
-    <script src="{% static 'assets/bundles/jvectormap.bundle.js'%}"></script> <!-- JVectorMap Plugin Js -->
-    <script src="{% static 'assets/bundles/sparkline.bundle.js'%}"></script> <!-- Sparkline Plugin Js -->
+    <script src="{% static 'assets/bundles/vendorscripts.bundle.js'%}"></script>
+
+
+    <script src="{% static 'assets/bundles/jvectormap.bundle.js'%}"></script>
+    <script src="{% static 'assets/bundles/sparkline.bundle.js'%}"></script>
     <script src="{% static 'assets/bundles/c3.bundle.js'%}"></script>
     <script src="{% static 'assets/plugins/select2/select2.min.js'%}"></script>
 

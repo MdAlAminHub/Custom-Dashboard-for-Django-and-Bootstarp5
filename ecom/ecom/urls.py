@@ -31,6 +31,9 @@ urlpatterns = [
     path('home/', include('reports.urls')),
     path('home/', include('feature.urls')),
     path('home/', include('site_settings.urls')),
+    path('frontend/', include('frontend.urls')),
+   
+    
     # path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

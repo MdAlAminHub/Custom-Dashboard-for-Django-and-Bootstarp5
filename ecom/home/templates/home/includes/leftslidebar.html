@@ -59,15 +59,15 @@
                 </ul>
             </li> {% endcomment %}
             <li><a href="/home/customers-list"><i class="zmdi zmdi-account"></i><span>Customers</span></a></li>
-            <li><a href="javascript:void(0);" class="menu-toggle"><i
+            {% comment %} <li><a href="javascript:void(0);" class="menu-toggle"><i
                         class="zmdi zmdi-balance"></i><span>Tax</span></a>
                 <ul class="ml-menu">
                     {% comment %} <li><a href="/home/countries">Countries</a></li> {% endcomment %}
-                    <li><a href="/home/tax_classes-list">Tax Classes</a></li>
-                    <li><a href="/home/tax_rates-list">Tax Rates</a></li>
+                    {% comment %} <li><a href="/home/tax_classes-list">Tax Classes</a></li>
+                    <li><a href="/home/tax_rates-list">Tax Rates</a></li> {% endcomment %}
                     {% comment %} <li><a href="/home/zones">Zones</a></li> {% endcomment %}
-                </ul>
-            </li>
+                {% comment %} </ul>
+            </li> {% endcomment %} 
             {% comment %} <li><a href="/home/coupons"><i class="zmdi zmdi-library"></i><span>Coupons</span></a></li> {% endcomment %}
             {% comment %} <li><a href="javascript:void(0);" class="menu-toggle"><i
                         class="zmdi zmdi-notifications"></i><span>Notifications</span></a>
@@ -106,7 +106,7 @@
             <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-flower"></i><span>Site
                         Settings</span></a>
                 <ul class="ml-menu">
-                    <li><a href="/home/order_status">Order Status </a></li>
+                    {% comment %} <li><a href="/home/order_status">Order Status </a></li> {% endcomment %}
                     <li><a href="/home/settings">Settings</a></li>
 
                 </ul>
