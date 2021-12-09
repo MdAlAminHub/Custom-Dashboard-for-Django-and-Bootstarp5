@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.http.request import HttpRequest
+from django.shortcuts import render, HttpResponseRedirect
 
 from categories.models import Categories, SubCategories, SubCategories_2
 from .models import *
 from django.core.files.storage import FileSystemStorage
 from manufacturer.models import Manufacturer
 from tax_location.models import TaxClasses
+from .models import Product
 def TEST(request):
 
     if request.method == 'POST':
@@ -25,7 +27,7 @@ def TEST(request):
         post.product_weight = request.POST.get('product_weight')
         post.products_quantity = request.POST.get('products_quantity')
         post.offer_quantity_limit = request.POST.get('offer_quantity_limit')
-        post.quantity_low_limit = request.POST.get('quantity_low_limit')
+        post.quantity_low_limit = request.POST.get('offer_quantity_limit')
 
         image = request.FILES['image']
         fss = FileSystemStorage()
@@ -71,5 +73,41 @@ def sub_test(request):
 
 def sub_list(request):
     return render(request, 'product_attributes/list.html', )
+
+
+def delete_products(request, id):
+    pd = Product.objects.get(pk=id)
+    print('=================', pd)
+    pd.delete()
+    return HttpResponseRedirect('/home/products-list')
+        
+        
+def update_products(request, id):
+    
+    list = Product.objects.get(pk=id)
+    if request.method == 'POST':
+        list.category = request.POST.get('category')
+        list.subcategory = request.POST.get('sub_category_id')
+        list.subcategory_2 = request.POST.get('sub_category2_id')
+        list.manufacturars = request.POST.get('manufacturers_id')
+        list.special = request.POST.get('special')
+        list.product_name_english = request.POST.get('product_name_english')
+        list.description_english = request.POST.get('description_english')
+        list.product_name_bangla = request.POST.get('product_name_bangla')
+        list.description_bangla = request.POST.get('description_bangla')
+        list.product_price = request.POST.get('product_price')
+        list.product_weight = request.POST.get('product_weight')
+        list.products_quantity = request.POST.get('products_quantity')
+        list.offer_quantity_limit = request.POST.get('offer_quantity_limit')
+        list.quantity_low_limit = request.POST.get('offer_quantity_limit')
+        list.image = request.POST.get('image')
+        list.status = request.POST.get('status')
+        
+        list.save()
+    return render(request, 'products/edit.html', {'id': id, 'list': list})
+
+
+
+    
 
 

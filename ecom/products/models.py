@@ -27,11 +27,11 @@ class Product(models.Model):
     
 
     def __str__(self):
-       return self.category.name
+       return self.product_name_english 
    
 class ProductAttributes(models.Model):
     add_options_english = models.CharField(max_length=50)
     add_options_bangla= models.CharField(max_length=20)
 
     def __str__(self):
-       return self.name
+       return self.add_options_english

@@ -1,0 +1,333 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Edit Products</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                    <li class="breadcrumb-item active">Lebels.AddNewProduct</li>
+                </ul>
+                <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
+                        class="zmdi zmdi-sort-amount-desc"></i></button>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
+                        class="zmdi zmdi-arrow-right"></i></button>
+                <div class="box-footer text-right">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="" accept-charset="UTF-8" class="form-horizontal form-validate"
+        enctype="multipart/form-data"><input name="_token" type="hidden" value="">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Category</label>
+            <div class="col-sm-10 col-md-4">
+                  <select class="form-control" name="category">
+                       {% for list in lists %}
+                            <option value="{{list.id}}">{{list.name_english}}</option>
+                        {% endfor %}
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose category to show sub category.</span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Sub Category</label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control field-validate" name="sub_category_id" id="sub_category_id">
+                    {% for list in subCategories %}
+                            <option value="{{list.id}}">{{list.name_english}}</option>
+                        {% endfor %}
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose sub category to associate with product</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">ChildCategory</label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control field-validate" name="sub_category2_id" id="sub_category2_id">
+                    {% for list in subCategories_2 %}
+                            <option value="{{list.id}}">{{list.name_english}}</option>
+                        {% endfor %}
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose sub category2 to associate with product</span>
+            </div>
+        </div> 
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Manufacturers </label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control" name="manufacturers_id">
+                     {% for list in manufactures %}
+                            <option value="{{list.id}}">{{list.name}}</option>
+                        {% endfor %}
+                </select><span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose product manufacturer/vender. You can add manufacturers from Manufacturers link.</span>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Special</label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control" onchange="showSpecial()" name="special" id="isSpecial">
+                    <option value="0"> No</option>
+                    <option value="1">Yes</option>
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose if this is in deals/special products. Special products belongs to deals.</span>
+            </div>
+        </div>
+
+        <div class="special-container" style="display: none;">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 col-md-3 control-label">Special Price</label>
+                <div class="col-sm-10 col-md-4">
+                    <input class="form-control" type="text" name="specials_new_products_price" id="special-price"
+                        value="">
+                    <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                        Special products price of deals. Please enter a numberic value.</span>
+                    <span class="help-block hidden">Please enter a numberic value.</span>
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <label for="name" class="col-sm-2 col-md-3 control-label">Expiry Date</label>
+
+                <div class="col-sm-10 col-md-4">
+                    <input class="form-control datepicker" type="text" name="expires_date" id="expiry-date" value="">
+                    <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                        When special products will be expired?
+                    </span>
+                    <span class="help-block hidden">This field is required.</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-md-3 control-label">Status</label>
+                <div class="col-sm-10 col-md-4">
+                    <select class="form-control" name="status">
+                        <option value="1"></option>
+                        <option value="0"></option>
+                    </select>
+                    <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                        Do you want to active special product now? Acitve will show into deals and In Active will
+                        eliminate the product from deals.</span>
+                </div>
+            </div>
+        </div>
+        <hr>
+            {% comment %} {% for list in lists%} {% endcomment %}
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Product Name (English)</label>
+            <div class="col-sm-10 col-md-4">
+                <input type="text" name="product_name_english" class="form-control field-validate">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter Product Name In English </span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Description (English)</label>
+            <div class="col-sm-10 col-md-8">
+                <textarea class="form-control desc" rows="5" id="description" name="description_english" cols="50"></textarea>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter Description.</span>
+            </div>
+        </div>
+            {% comment %} {% endfor %} {% endcomment %}
+
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Product Name (Bangla)</label>
+            <div class="col-sm-10 col-md-4">
+                <input type="text" name="product_name_bangla" class="form-control field-validate">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter Product Name In Bangla </span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Description (Bangla)</label>
+            <div class="col-sm-10 col-md-8">
+                <textarea class="form-control descbn" rows="5" id="description" name="description_bangla" cols="50"></textarea>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter Description.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Tax Class </label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control field-validate" name="tax_class">
+                    <option selected="">Select Tax</option>
+                   {% for item in taxes %}
+                        <option value="{{item.id}}">{{item.title}}</option>
+                   {% endfor %}
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Choose tax class in which this product belongs. You can add them from Tax / Location link.
+                </span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Products Price</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control number-validate" id="products_price" name="product_price" type="text"
+                    value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Please enter only numreic value.
+                </span>
+
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Products Weight</label>
+            <div class="col-sm-10 col-md-3">
+                <input class="form-control number-validate" id="products_weight" name="product_weight" type="text"
+                    value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Please enter only numreic value.
+                </span>
+            </div>
+            <div class="col-sm-10 col-md-1" style="padding-left: 0;">
+                <select class="form-control" name="products_weight_unit">
+                    <option value="g">G</option>
+                    <option value="kg">KG</option>
+                    <option value="piece">Pcs</option>
+                    <option value="liter ">Liter </option>
+                    <option value="ml ">Ml</option>
+
+                </select>
+            </div>
+        </div>
+
+        {% comment %} <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Products Model</label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="products_model" name="products_model" type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Enter product model if exist (optional).
+                </span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div> {% endcomment %}
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Products Quantity </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control number-validate" id="products_quantity" name="products_quantity" type="text"
+                    value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Please enter a numreic value.
+                </span>
+                <span class="help-block hidden"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label"> Offer Quantity Limit
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" placeholder="offer quantity limilt" name="offer_quantity_limit" type="text"
+                    value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">offer quantity
+                    limilt</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Quantity Low Limit
+            </label>
+            <div class="col-sm-10 col-md-4">
+                <input class="form-control" id="low_limit" name="quantity_low_limit" type="text" value="">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Define low quantity limit to show low in stock.</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Image</label>
+            <div class="col-sm-10 col-md-4">
+                <input id="products_image" class="field-validate" name="image" type="file">
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Upload default product image.</span>
+            </div>
+        </div>
+
+        {% comment %} <div class="form-group row">
+            <label for="name" class="col-sm-2 col-md-3 control-label">Status </label>
+            <div class="col-sm-10 col-md-4">
+                <select class="form-control" name="status">
+                    <option value="1"></option>
+                    <option value="0"></option>
+                </select>
+                <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                    Select status Active or Inactive.</span>
+            </div>
+        </div> {% endcomment %}
+
+        <!-- /.box-body -->
+        <div class="box-footer text-center">
+            <button type="submit" class="btn btn-primary">Add Product</button>
+            <a href="/home/products-list" type="button" class="btn btn-default">Back</a>
+        </div>
+
+        <!-- /.box-footer -->
+    </form>
+
+</section>
+
+{% block extra_scripts %}
+
+<script src="{% static 'assets/plugins/ckeditor/ckeditor.js'%}"></script>
+<script>
+    var toobarConfig = [{
+            name: 'document',
+            groups: ['mode', 'document']
+        },
+        {
+            name: 'clipboard',
+            groups: ['clipboard', 'undo']
+        },
+        '/',
+        {
+            name: 'basicstyles',
+            groups: ['basicstyles', 'cleanup']
+        },
+        {
+            name: 'links'
+        }
+    ];
+
+    cl = document.querySelector('.desc');
+    clbn = document.querySelector('.descbn');
+
+    window.onload = function () {
+        CKEDITOR.replace(cl, {
+            toolbarGroups: toobarConfig
+        });
+
+        CKEDITOR.replace(clbn, {
+            toolbarGroups: toobarConfig
+        });
+    }
+</script>
+
+{% endblock extra_scripts %}
+
+{% endblock main_content %}
