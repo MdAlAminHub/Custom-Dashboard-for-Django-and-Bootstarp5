@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'feature',
     'site_settings',
     'frontend',
+    'store.apps.StoreConfig',
     
    
 

@@ -32,6 +32,7 @@ urlpatterns = [
     path('home/', include('feature.urls')),
     path('home/', include('site_settings.urls')),
     path('frontend/', include('frontend.urls')),
+    path('', include('store.urls')),
    
     
     # path('admin/', admin.site.urls),
