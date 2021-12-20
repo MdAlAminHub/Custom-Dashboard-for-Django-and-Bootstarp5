@@ -1,8 +1,391 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html>
 
 <head>
+
+    <header class="header header-2 header-intro-clearance">
+
+        <div class="header-middle">
+            <div class="container">
+                <div class="header-left">
+                    <button class="mobile-menu-toggler">
+                        <span class="sr-only">Toggle mobile menu</span>
+                        <i class="icon-bars"></i>
+                    </button>
+
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/demos/demo-2/logo.png" alt="Molla Logo" width="105" height="25">
+                    </a>
+                </div><!-- End .header-left -->
+
+                <div class="header-center">
+                    <div
+                        class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
+                        <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
+                        <form action="#" method="get">
+                            <div class="header-search-wrapper search-wrapper-wide">
+                                <label for="q" class="sr-only">Search</label>
+                                <input type="search" class="form-control" name="q" id="q"
+                                    placeholder="Search product ..." required>
+                                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                            </div><!-- End .header-search-wrapper -->
+                        </form>
+                    </div><!-- End .header-search -->
+                </div>
+
+                <div class="header-right">
+                    <div class="account">
+                        <a href="dashboard.html" title="My account">
+                            <div class="icon">
+                                <i class="icon-user"></i>
+                            </div>
+                            <p>Account</p>
+                        </a>
+                    </div><!-- End .compare-dropdown -->
+
+                    <div class="wishlist">
+                        <a href="wishlist.html" title="Wishlist">
+                            <div class="icon">
+                                <i class="icon-heart-o"></i>
+                                <span class="wishlist-count badge">3</span>
+                            </div>
+                            <p>Wishlist</p>
+                        </a>
+                    </div><!-- End .compare-dropdown -->
+
+                    <div class="dropdown cart-dropdown">
+
+                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" data-display="static">
+                            <div class="icon">
+                                <i class="icon-shopping-cart"></i>
+                                <span class="cart-count">2</span>
+                            </div>
+                            <p>Cart</p>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-cart-products">
+                                <div class="product">
+                                    <div class="product-cart-details">
+                                        <h4 class="product-title">
+                                            <a href="product.html">Beige knitted elastic runner shoes</a>
+                                        </h4>
+
+                                        <span class="cart-product-info">
+                                            <span class="cart-product-qty">1</span>
+                                            x $84.00
+                                        </span>
+                                    </div><!-- End .product-cart-details -->
+
+                                    <figure class="product-image-container">
+                                        <a href="product.html" class="product-image">
+                                            <img src="assets/images/products/cart/product-1.jpg" alt="product">
+                                        </a>
+                                    </figure>
+                                    <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                                </div><!-- End .product -->
+
+                                <div class="product">
+                                    <div class="product-cart-details">
+                                        <h4 class="product-title">
+                                            <a href="product.html">Blue utility pinafore denim dress</a>
+                                        </h4>
+
+                                        <span class="cart-product-info">
+                                            <span class="cart-product-qty">1</span>
+                                            x $76.00
+                                        </span>
+                                    </div><!-- End .product-cart-details -->
+
+                                    <figure class="product-image-container">
+                                        <a href="product.html" class="product-image">
+                                            <img src="assets/images/products/cart/product-2.jpg" alt="product">
+                                        </a>
+                                    </figure>
+                                    <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                                </div><!-- End .product -->
+                            </div><!-- End .cart-product -->
+
+                            <div class="dropdown-cart-total">
+                                <span>Total</span>
+
+                                <span class="cart-total-price">$160.00</span>
+                            </div><!-- End .dropdown-cart-total -->
+
+                            <div class="dropdown-cart-action">
+                                <a href="cart.html" class="btn btn-primary">View Cart</a>
+                                <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
+                                        class="icon-long-arrow-right"></i></a>
+                            </div><!-- End .dropdown-cart-total -->
+                        </div><!-- End .dropdown-menu -->
+                    </div><!-- End .cart-dropdown -->
+                </div><!-- End .header-right -->
+            </div><!-- End .container -->
+        </div><!-- End .header-middle -->
+
+        <div class="header-bottom sticky-header">
+            <div class="container">
+                <div class="header-left">
+                    <div class="dropdown category-dropdown">
+                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" data-display="static" title="Product Categories">
+                            Product Categories
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <nav class="side-nav">
+                                <ul class="menu-vertical sf-arrows">
+                                    <li class="item-lead"><a href="#">General Grocery</a></li>
+                                    <li class="item-lead"><a href="#">Cooking Essentials</a></li>
+                                    <li class="item-lead"><a href="#">Home care and Cleaning Utilities</a></li>
+                                    <li class="item-lead"><a href="#">Dairy and Bekary</a></li>
+                                    <li class="item-lead"><a href="#">Beverages</a></li>
+                                    <li class="item-lead"><a href="#">Personal Care </a></li>
+
+                                </ul><!-- End .menu-vertical -->
+                            </nav><!-- End .side-nav -->
+                        </div><!-- End .dropdown-menu -->
+                    </div><!-- End .category-dropdown -->
+                </div><!-- End .header-left -->
+
+                <div class="header-center">
+                    <nav class="main-nav">
+                        <ul class="menu sf-arrows">
+                            {% comment %} <li class="megamenu-container active">
+                                <a href="index.html" class="sf-with-ul">Home</a>
+
+                                <div class="megamenu demo">
+                                    <div class="menu-col">
+                                        <div class="menu-title">Choose your demo</div><!-- End .menu-title -->
+
+                                        <div class="demo-list">
+                                            <div class="demo-item">
+                                                <a href="index-1.html">
+                                                    <span class="demo-bg"
+                                                        style="background-image: url(assets/images/menu/demos/1.jpg);"></span>
+                                                    <span class="demo-title">01 - furniture store</span>
+                                                </a>
+                                            </div><!-- End .demo-item -->
+
+
+                                        </div><!-- End .demo-list -->
+
+                                        <div class="megamenu-action text-center">
+                                            <a href="#" class="btn btn-outline-primary-2 view-all-demos"><span>View
+                                                    All Demos</span><i class="icon-long-arrow-right"></i></a>
+                                        </div><!-- End .text-center -->
+                                    </div><!-- End .menu-col -->
+                                </div><!-- End .megamenu -->
+                            </li>
+                            <li>
+                                <a href="category.html" class="sf-with-ul">Shop</a>
+
+
+                            </li>
+                            <li>
+                                <a href="product.html" class="sf-with-ul">Product</a>
+
+                            </li> {% endcomment %}
+                            <li>
+                                <a href="#" class="sf-with-ul">Pages</a>
+
+                                <ul>
+                                    <li>
+                                        <a href="about.html" class="sf-with-ul">About</a>
+
+                                        <ul>
+                                            <li><a href="about.html">About 01</a></li>
+                                            <li><a href="about-2.html">About 02</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html" class="sf-with-ul">Contact</a>
+
+                                        <ul>
+                                            <li><a href="contact.html">Contact 01</a></li>
+                                            <li><a href="contact-2.html">Contact 02</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="faq.html">FAQs</a></li>
+                                    <li><a href="404.html">Error 404</a></li>
+                                    <li><a href="coming-soon.html">Coming Soon</a></li>
+                                </ul>
+                            </li>
+
+
+                        </ul><!-- End .menu -->
+                    </nav><!-- End .main-nav -->
+                </div><!-- End .header-center -->
+
+                <div class="header-right">
+
+                    <ul class="top-menu">
+                        <li>
+                            <a href="#">Links</a>
+                            <ul>
+
+                                <li><a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a>
+                                    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                                                    </button>
+
+                                                    <div class="form-box">
+                                                        <div class="form-tab">
+                                                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link active" id="signin-tab"
+                                                                        data-toggle="tab" href="#signin" role="tab"
+                                                                        aria-controls="signin" aria-selected="true">Sign
+                                                                        In</a>
+                                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link" id="register-tab"
+                                                                        data-toggle="tab" href="#register" role="tab"
+                                                                        aria-controls="register"
+                                                                        aria-selected="false">Register</a>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="tab-content" id="tab-content-5">
+                                                                <div class="tab-pane fade show active" id="signin"
+                                                                    role="tabpanel" aria-labelledby="signin-tab">
+                                                                    <form action="#">
+                                                                        <div class="form-group">
+                                                                            <label for="singin-email">Username or email
+                                                                                address *</label>
+                                                                            <input type="text" class="form-control"
+                                                                                id="singin-email" name="singin-email"
+                                                                                required>
+                                                                        </div><!-- End .form-group -->
+
+                                                                        <div class="form-group">
+                                                                            <label for="singin-password">Password
+                                                                                *</label>
+                                                                            <input type="password" class="form-control"
+                                                                                id="singin-password"
+                                                                                name="singin-password" required>
+                                                                        </div><!-- End .form-group -->
+
+                                                                        <div class="form-footer">
+                                                                            <button type="submit"
+                                                                                class="btn btn-outline-primary-2">
+                                                                                <span>LOG IN</span>
+                                                                                <i class="icon-long-arrow-right"></i>
+                                                                            </button>
+
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox"
+                                                                                    class="custom-control-input"
+                                                                                    id="signin-remember">
+                                                                                <label class="custom-control-label"
+                                                                                    for="signin-remember">Remember
+                                                                                    Me</label>
+                                                                            </div><!-- End .custom-checkbox -->
+
+                                                                            <a href="#" class="forgot-link">Forgot Your
+                                                                                Password?</a>
+                                                                        </div><!-- End .form-footer -->
+                                                                    </form>
+                                                                    <div class="form-choice">
+                                                                        <p class="text-center">or sign in with</p>
+                                                                        <div class="row">
+                                                                            <div class="col-sm-6">
+                                                                                <a href="#" class="btn btn-login btn-g">
+                                                                                    <i class="icon-google"></i>
+                                                                                    Login With Google
+                                                                                </a>
+                                                                            </div><!-- End .col-6 -->
+                                                                            <div class="col-sm-6">
+                                                                                <a href="#" class="btn btn-login btn-f">
+                                                                                    <i class="icon-facebook-f"></i>
+                                                                                    Login With Facebook
+                                                                                </a>
+                                                                            </div><!-- End .col-6 -->
+                                                                        </div><!-- End .row -->
+                                                                    </div><!-- End .form-choice -->
+                                                                </div><!-- .End .tab-pane -->
+                                                                <div class="tab-pane fade" id="register" role="tabpanel"
+                                                                    aria-labelledby="register-tab">
+                                                                    <form action="#">
+                                                                        <div class="form-group">
+                                                                            <label for="register-email">Your email
+                                                                                address *</label>
+                                                                            <input type="email" class="form-control"
+                                                                                id="register-email"
+                                                                                name="register-email" required>
+                                                                        </div><!-- End .form-group -->
+
+                                                                        <div class="form-group">
+                                                                            <label for="register-password">Password
+                                                                                *</label>
+                                                                            <input type="password" class="form-control"
+                                                                                id="register-password"
+                                                                                name="register-password" required>
+                                                                        </div><!-- End .form-group -->
+
+                                                                        <div class="form-footer">
+                                                                            <button type="submit"
+                                                                                class="btn btn-outline-primary-2">
+                                                                                <span>SIGN UP</span>
+                                                                                <i class="icon-long-arrow-right"></i>
+                                                                            </button>
+
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox"
+                                                                                    class="custom-control-input"
+                                                                                    id="register-policy" required>
+                                                                                <label class="custom-control-label"
+                                                                                    for="register-policy">I agree to the
+                                                                                    <a href="#">privacy policy</a>
+                                                                                    *</label>
+                                                                            </div><!-- End .custom-checkbox -->
+                                                                        </div><!-- End .form-footer -->
+                                                                    </form>
+                                                                    <div class="form-choice">
+                                                                        <p class="text-center">or sign in with</p>
+                                                                        <div class="row">
+                                                                            <div class="col-sm-6">
+                                                                                <a href="#" class="btn btn-login btn-g">
+                                                                                    <i class="icon-google"></i>
+                                                                                    Login With Google
+                                                                                </a>
+                                                                            </div><!-- End .col-6 -->
+                                                                            <div class="col-sm-6">
+                                                                                <a href="#"
+                                                                                    class="btn btn-login  btn-f">
+                                                                                    <i class="icon-facebook-f"></i>
+                                                                                    Login With Facebook
+                                                                                </a>
+                                                                            </div><!-- End .col-6 -->
+                                                                        </div><!-- End .row -->
+                                                                    </div><!-- End .form-choice -->
+                                                                </div><!-- .End .tab-pane -->
+                                                            </div><!-- End .tab-content -->
+                                                        </div><!-- End .form-tab -->
+                                                    </div><!-- End .form-box -->
+                                                </div><!-- End .modal-body -->
+                                            </div><!-- End .modal-content -->
+                                        </div><!-- End .modal-dialog -->
+                                    </div><!-- End .modal -->
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul><!-- End .top-menu -->
+                </div><!-- End .header-right -->
+            </div><!-- End .container -->
+        </div><!-- End .header-bottom -->
+    </header><!-- End .header -->
+
     <title>Ecom</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
@@ -11,6 +394,29 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{% static 'front_assets/assets/images/icons/apple-touch-icon.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{% static 'front_assets/assets/images/icons/favicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{% static 'front_assets/assets/images/icons/favicon-16x16.png'%}">
+    <link rel="manifest" href="% static {'front_assets/assets/images/icons/site.html'%}">
+    <link rel="mask-icon" href="{% static 'front_assets/assets/images/icons/safari-pinned-tab.svg" color="#666666'%}">
+    <link rel="shortcut icon" href="{% static 'front_assets/assets/images/icons/favicon.ico'%}">
+
+    <link rel="stylesheet"
+        href="{% static 'front_assets/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'%}">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/plugins/owl-carousel/owl.carousel.css'%}">
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/plugins/magnific-popup/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/plugins/jquery.countdown.css'%}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/skins/skin-demo-2.css'%}">
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/demos/demo-2.css'%}">
+
 
     <script type="text/javascript">
         var user = '{{request.user}}'
@@ -37,7 +443,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="{% url 'store' %}">Ecom</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +458,8 @@
 
             </ul>
             <div class="form-inline my-2 my-lg-0">
-                <a href="#" class="btn btn-warning">Login</a>
+                {% comment %} <a href="#" class="btn btn-warning">Login</a> {% endcomment %}
+                {% comment %} <a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a> {% endcomment %}
 
                 <a href="{% url 'cart' %}">
                     <img id="cart-icon" src="{% static 'images/cart.png' %}">
@@ -64,7 +471,71 @@
         </div>
     </nav>
 
+    <div class="page-wrapper">
+
+        <main class="main">
+            <div class="intro-slider-container">
+                <div class="owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl"
+                    data-owl-options='{"nav": false}'>
+                    <div class="intro-slide"
+                        style="background-image: url({% static 'front_assets/assets/images/slider/slide-1.jpg' %});">
+                        <div class="container intro-content">
+                            <h3 class="intro-subtitle">Cooking Essentials</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title">Find your product <br>by one click</h1><!-- End .intro-title -->
+
+                        </div><!-- End .container intro-content -->
+                    </div><!-- End .intro-slide -->
+
+                    <div class="intro-slide"
+                        style="background-image: url({% static 'front_assets/assets/images/slider/slide-2.jpg' %});">
+                        <div class="container intro-content">
+                            <h3 class="intro-subtitle">General Grocery</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title">All groceries <br>in one place </h1>
+
+
+                        </div><!-- End .container intro-content -->
+                    </div><!-- End .intro-slide -->
+
+                    <div class="intro-slide"
+                        style="background-image: url({% static 'front_assets/assets/images/slider/slide-3 .jpg' %});">
+                        <div class="container intro-content">
+                            <h3 class="intro-subtitle">Home Care and Cleaning Utilities</h3>
+                            <!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title">
+                                Home care and cleaning utilities <br>by one click</h1>
+                            {% comment %} <span class="text-primary">
+                                <sup class="text-white font-weight-light">from</sup><sup>$</sup>9,99
+                            </span> {% endcomment %}
+
+
+                            {% comment %} <a href="category.html" class="btn btn-primary">
+                                <span>Shop Now</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a> {% endcomment %}
+                        </div><!-- End .container intro-content -->
+                    </div><!-- End .intro-slide -->
+                </div><!-- End .owl-carousel owl-simple -->
+
+                <span class="slider-loader text-white"></span><!-- End .slider-loader -->
+            </div><!-- End .intro-slider-container -->
+        </main><!-- End .main -->
+    </div>
+
     <div class="container">
+        <ul class="nav nav-pills nav-border-anim nav-big justify-content-center mb-3" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="products-featured-link" data-toggle="tab" href="#products-featured-tab"
+                    role="tab" aria-controls="products-featured-tab" aria-selected="true">Featured</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="products-sale-link" data-toggle="tab" href="#products-sale-tab" role="tab"
+                    aria-controls="products-sale-tab" aria-selected="false">On Sale</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="products-top-link" data-toggle="tab" href="#products-top-tab" role="tab"
+                    aria-controls="products-top-tab" aria-selected="false">Top Rated</a>
+            </li>
+        </ul>
         <br>
         {% block content %}
 
@@ -87,6 +558,21 @@
 
     <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
 
+    <!-- Plugins JS File -->
+
+    <script src="{% static 'front_assets/assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'front_assets/assets/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'front_assets/assets/js/jquery.hoverIntent.min.js'%}"></script>
+    <script src="{% static 'front_assets/assets/js/jquery.waypoints.min.js'%}"></script>
+    <script src="{% static 'front_assets/assets/js/superfish.min.js'%}"></script>
+    <script src="{% static 'front_assets/assets/js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'front_assets/assets/js/jquery.plugin.min.js'%}"></script>
+    <script src="{% static 'front_assets/assets/js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'front_assets/assets/js/jquery.countdown.min.js'%}"></script>
+    <!-- Main JS File -->
+    <script src="{% static 'front_assets/assets/js/main.js'%}"></script>
+    <script src="{% static 'front_assets/assets/js/demos/demo-2.js'%}"></script>
+    {% block extra_scripts %}{% endblock extra_scripts %}
 </body>
 
 </html>
