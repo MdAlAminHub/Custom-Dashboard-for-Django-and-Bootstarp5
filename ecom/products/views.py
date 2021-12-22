@@ -1,12 +1,12 @@
-from django.http.request import HttpRequest
-from django.shortcuts import render, HttpResponseRedirect
+# from django.http.request import HttpRequest
+# from django.shortcuts import render, HttpResponseRedirect
 
-from categories.models import Categories, SubCategories, SubCategories_2
-from .models import *
-from django.core.files.storage import FileSystemStorage
-from manufacturer.models import Manufacturer
-from tax_location.models import TaxClasses
-from .models import Product
+# from categories.models import Categories, SubCategories
+# from .models import *
+# from django.core.files.storage import FileSystemStorage
+# from manufacturer.models import Manufacturer
+# from tax_location.models import TaxClasses
+# from .models import Product
 def TEST(request):
 
     if request.method == 'POST':
@@ -64,7 +64,8 @@ def TEST(request):
 
 
 def list(request):
-    lists = Product.objects.all()
+    lists = SubCategories_2.objects.all()
+    print('=================', lists)
     args = {'lists': lists}
     return render(request, 'products/list.html', args)
 

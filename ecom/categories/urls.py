@@ -10,5 +10,7 @@ urlpatterns = [
     path('sub_categories',  views.sub_test, name='home'),
     path('sub_categories_2',  views.sub_test_2, name='home'),
     path('dalete/<int:id>/',  views.delete_data, name="deletedata"),
+    path('categories_ways_product/',
+         views.show_categories_product, name="sub-categories-product"),
     
 ]

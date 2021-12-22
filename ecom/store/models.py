@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User 
+from categories.models import Categories, SubCategories
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE , null=True, blank=True)
@@ -10,10 +11,16 @@ class Customer(models.Model):
         return self.name
         
 class Product(models.Model):
+    category = models.ForeignKey(Categories, on_delete=models.CASCADE)
+    subcategory = models.ForeignKey(SubCategories, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True)
     price = models.FloatField()
     digital = models.BooleanField(default=False, null = True, blank = True)
     image = models.ImageField(blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+   
  
     def __str__(self,):
         return self.name

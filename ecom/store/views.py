@@ -114,3 +114,28 @@ def processOrder(request):
     return JsonResponse('Payment complete!', safe=False)
     
  
+ 
+def get_general_product(request):
+    category_obj = Categories.objects.get(name_english='General Grocery')
+    print(' == == == Category Obj == == ===', category_obj)
+    sub_category_obj = SubCategories.objects.filter(category=category_obj)
+    print('==========Sub CAtegory=============', sub_category_obj)
+    context = {
+        'sub_category_obj': sub_category_obj
+    }
+    return render(request, 'store/main.html', context)
+
+
+def get_cooking_essentials(request):
+    cooking_obj = Categories.objects.get(name_english='Cooking Essentials')
+    print(' == == == Category Obj == == ===', cooking_obj)
+    cooking_obj_list = SubCategories.objects.filter(category=cooking_obj)
+    print('==========Sub CAtegory=============', cooking_obj_list)
+    context = {
+        'cooking_obj_list': cooking_obj_list
+    }
+    return render(request, 'store/main.html', context)
+    
+     
+     
+     

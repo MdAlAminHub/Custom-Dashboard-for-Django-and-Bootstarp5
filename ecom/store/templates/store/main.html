@@ -138,7 +138,7 @@
                         <div class="dropdown-menu">
                             <nav class="side-nav">
                                 <ul class="menu-vertical sf-arrows">
-                                    <li class="item-lead"><a href="#">General Grocery</a></li>
+                                    <li class="item-lead"><a href="{% url 'sub_categories_obj'%}">General Grocery</a></li>
                                     <li class="item-lead"><a href="#">Cooking Essentials</a></li>
                                     <li class="item-lead"><a href="#">Home care and Cleaning Utilities</a></li>
                                     <li class="item-lead"><a href="#">Dairy and Bekary</a></li>
@@ -538,6 +538,12 @@
         </ul>
         <br>
         {% block content %}
+
+        {% for cat_obj in sub_category_obj%}
+
+        <h2>{{ cat_obj.name_english }}</h2>
+
+        {% endfor %}
 
 
         {% endblock content %}

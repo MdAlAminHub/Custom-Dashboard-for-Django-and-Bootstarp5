@@ -113,3 +113,13 @@ def sub_list_2(request):
     args = {'lists': lists}
     return render(request, 'sub_categories_2/list.html', args)
 
+
+
+def show_categories_product(request):
+    sub_product = SubCategories.objects.all()
+    print('=========================',sub_product)
+    child_product = SubCategories_2.objects.filter(subcategory=sub_product)
+    print(' == == == == == == == == == == == ===', child_product)
+    
+    
+    
