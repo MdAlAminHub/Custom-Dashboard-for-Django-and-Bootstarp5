@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 {% load static %}
-{% with name=request.path %}  
+{% with name=request.path %}
 <html>
 
 <head>
-
-
-
     <title>Ecom</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-
     <link rel="apple-touch-icon" sizes="180x180"
         href="{% static 'front_assets/assets/images/icons/apple-touch-icon.png'%}">
     <link rel="icon" type="image/png" sizes="32x32"
@@ -25,7 +18,6 @@
     <link rel="manifest" href="% static {'front_assets/assets/images/icons/site.html'%}">
     <link rel="mask-icon" href="{% static 'front_assets/assets/images/icons/safari-pinned-tab.svg" color="#666666'%}">
     <link rel="shortcut icon" href="{% static 'front_assets/assets/images/icons/favicon.ico'%}">
-
     <link rel="stylesheet"
         href="{% static 'front_assets/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'%}">
     <!-- Plugins CSS File -->
@@ -37,7 +29,6 @@
     <link rel="stylesheet" href="{% static 'front_assets/assets/css/style.css'%}">
     <link rel="stylesheet" href="{% static 'front_assets/assets/css/skins/skin-demo-2.css'%}">
     <link rel="stylesheet" href="{% static 'front_assets/assets/css/demos/demo-2.css'%}">
-
 
     <script type="text/javascript">
         var user = '{{request.user}}'
@@ -73,10 +64,16 @@
                         <span class="sr-only">Toggle mobile menu</span>
                         <i class="icon-bars"></i>
                     </button>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'store' %}"><h4>Grocery Store </h4><span
+                                    class="sr-only">(current)</span></a>
+                        </li>
 
-                    <a href="index.html" class="logo">
+                    </ul>
+                    {% comment %} <a href="index.html" class="logo">
                         <img src="assets/images/demos/demo-2/logo.png" alt="Molla Logo" width="105" height="25">
-                    </a>
+                    </a> {% endcomment %}
                 </div><!-- End .header-left -->
 
                 <div class="header-center">
@@ -116,18 +113,26 @@
 
                     <div class="dropdown cart-dropdown">
 
-                        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" data-display="static">
+                        <div class="form-inline my-2 my-lg-0">
+                            <a href="{% url 'cart' %}">
+                                <img id="cart-icon" src="{% static 'images/cart.png' %}">
+                            </a>
+                            <p id="cart-total">{{cartItems}}</p>
+
+                        </div>
+
+                        {% comment %} <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" data-display="static">
                             <div class="icon">
                                 <i class="icon-shopping-cart"></i>
                                 <span class="cart-count">2</span>
                             </div>
                             <p>Cart</p>
-                        </a>
+                        </a> {% endcomment %}
 
                         <div class="dropdown-menu dropdown-menu-right">
-                            <div class="dropdown-cart-products">
-                                <div class="product">
+                            {% comment %} <div class="dropdown-cart-products"> {% endcomment %}
+                                {% comment %} <div class="product">
                                     <div class="product-cart-details">
                                         <h4 class="product-title">
                                             <a href="product.html">Beige knitted elastic runner shoes</a>
@@ -145,9 +150,9 @@
                                         </a>
                                     </figure>
                                     <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                </div><!-- End .product -->
+                                </div><!-- End .product --> {% endcomment %}
 
-                                <div class="product">
+                                {% comment %} <div class="product">
                                     <div class="product-cart-details">
                                         <h4 class="product-title">
                                             <a href="product.html">Blue utility pinafore denim dress</a>
@@ -165,18 +170,18 @@
                                         </a>
                                     </figure>
                                     <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                </div><!-- End .product -->
-                            </div><!-- End .cart-product -->
+                                </div><!-- End .product --> {% endcomment %}
+                            {% comment %} </div><!-- End .cart-product --> {% endcomment %}
 
-                            <div class="dropdown-cart-total">
+                            {% comment %} <div class="dropdown-cart-total">
                                 <span>Total</span>
 
                                 <span class="cart-total-price">$160.00</span>
-                            </div><!-- End .dropdown-cart-total -->
+                            </div> {% endcomment %}
 
                             <div class="dropdown-cart-action">
-                                <a href="cart.html" class="btn btn-primary">View Cart</a>
-                                <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
+                                <a href="{% url 'cart' %}" class="btn btn-primary">View Cart</a>
+                                <a href="{% url 'checkout' %}" class="btn btn-outline-primary-2"><span>Checkout</span><i
                                         class="icon-long-arrow-right"></i></a>
                             </div><!-- End .dropdown-cart-total -->
                         </div><!-- End .dropdown-menu -->
@@ -199,8 +204,10 @@
                                 <ul class="menu-vertical sf-arrows">
                                     <li class="item-lead"><a href="{% url 'sub_categories_obj'%}">General Grocery</a>
                                     </li>
-                                    <li class="item-lead"><a href="{% url 'get_cooking_essentials' %}">Cooking Essentials</a></li>
-                                    <li class="item-lead"><a href="{% url 'get_home_care' %}">Home care and Cleaning Utilities</a></li>
+                                    <li class="item-lead"><a href="{% url 'get_cooking_essentials' %}">Cooking
+                                            Essentials</a></li>
+                                    <li class="item-lead"><a href="{% url 'get_home_care' %}">Home care and Cleaning
+                                            Utilities</a></li>
                                     <li class="item-lead"><a href="#">Dairy and Bekary</a></li>
                                     <li class="item-lead"><a href="#">Beverages</a></li>
                                     <li class="item-lead"><a href="#">Personal Care </a></li>
@@ -446,7 +453,7 @@
         </div><!-- End .header-bottom -->
     </header><!-- End .header -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    {% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="{% url 'store' %}">Ecom</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -461,9 +468,6 @@
 
             </ul>
             <div class="form-inline my-2 my-lg-0">
-                {% comment %} <a href="#" class="btn btn-warning">Login</a> {% endcomment %}
-                {% comment %} <a href="#signin-modal" data-toggle="modal">Sign in / Sign up</a> {% endcomment %}
-
                 <a href="{% url 'cart' %}">
                     <img id="cart-icon" src="{% static 'images/cart.png' %}">
                 </a>
@@ -472,16 +476,14 @@
             </div>
 
         </div>
-    </nav>
+    </nav> {% endcomment %}
 
 
     {% if name == '/' %}
     {% include '../store/slider.html' %}
     {% endif %}
 
-    
-
-    
+    {% comment %} {% include '../store/footer.html' %} {% endcomment %}
 
     <div class="container">
 
@@ -497,31 +499,33 @@
                 </div>
             </div>
             {% endfor %}
-              
+
             {% comment %} For swhowing the subcategory name {% endcomment %}
 
             {% for cat_obj in cooking_obj_list%}
             <div class="col-lg-3">
                 <div class="box-element product">
                     <a href="{% url 'filter_products' cat_obj.id %}">
+                        <div class="icon"><img class="product-image" src="{{cat_obj.image.url}}"></div>
                         <strong>{{ cat_obj.name_english }}</strong>
                     </a>
                 </div>
             </div>
             {% endfor %}
-            
 
-            
+
+
             {% for cat_obj in home_care_obj_list%}
             <div class="col-lg-3">
                 <div class="box-element product">
                     <a href="{% url 'filter_products' cat_obj.id %}">
+                        <div class="icon"><img class="product-image" src="{{cat_obj.image.url}}"></div>
                         <strong>{{ cat_obj.name_english }}</strong>
                     </a>
                 </div>
             </div>
             {% endfor %}
-            
+
 
 
         </div>
@@ -533,7 +537,7 @@
                 <div class="product product-11 text-center">
                     <figure class="product-media">
                         <a>
-                                <img class="product-image" src="{{product.image.url}}">
+                            <img class="product-image" src="{{product.image.url}}">
                         </a>
                     </figure>
 
@@ -542,12 +546,15 @@
                         <div class="product-price">৳ {{product.price|floatformat:2}}</div>
                     </div>
                     <div class="product-action">
-                        <a data-product={{product.id}} data-action="add" class="btn-product btn-cart add-btn update-cart"><span>add to cart</span></a>
+                        <a data-product={{product.id}} data-action="add"
+                            class="btn-product btn-cart add-btn update-cart"><span>add to cart</span></a>
+                            
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
+        {% include '../store/footer.html' %}
     </div>
 
 
