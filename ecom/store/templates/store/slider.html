@@ -1,0 +1,43 @@
+{% load static %}
+
+<div class="page-wrapper">
+
+    <main class="main">
+        <div class="intro-slider-container">
+            <div class="owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl"
+                data-owl-options='{"nav": false}'>
+                <div class="intro-slide"
+                    style="background-image: url({% static 'front_assets/assets/images/slider/slide-1.jpg' %});">
+                    <div class="container intro-content">
+                        <h3 class="intro-subtitle">Cooking Essentials</h3><!-- End .h3 intro-subtitle -->
+                        <h1 class="intro-title">Find your product <br>by one click</h1><!-- End .intro-title -->
+
+                    </div><!-- End .container intro-content -->
+                </div><!-- End .intro-slide -->
+
+                <div class="intro-slide"
+                    style="background-image: url({% static 'front_assets/assets/images/slider/slide-2.jpg' %});">
+                    <div class="container intro-content">
+                        <h3 class="intro-subtitle">General Grocery</h3><!-- End .h3 intro-subtitle -->
+                        <h1 class="intro-title">All groceries <br>in one place </h1>
+
+
+                    </div><!-- End .container intro-content -->
+                </div><!-- End .intro-slide -->
+
+                <div class="intro-slide"
+                    style="background-image: url({% static 'front_assets/assets/images/slider/slide-3 .jpg' %});">
+                    <div class="container intro-content">
+                        <h3 class="intro-subtitle">Home Care and Cleaning Utilities</h3>
+                        <!-- End .h3 intro-subtitle -->
+                        <h1 class="intro-title">
+                            Home care and cleaning utilities <br>by one click</h1>
+
+                    </div><!-- End .container intro-content -->
+                </div><!-- End .intro-slide -->
+            </div><!-- End .owl-carousel owl-simple -->
+
+            <span class="slider-loader text-white"></span><!-- End .slider-loader -->
+        </div><!-- End .intro-slider-container -->
+    </main><!-- End .main -->
+</div>

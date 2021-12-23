@@ -11,5 +11,10 @@ urlpatterns = [
     path('process_order/', views.processOrder, name="process_order"),
     path('sub_categories_obj/', views.get_general_product,
          name="sub_categories_obj"),
+    path('get_cooking_essentials/', views.get_cooking_essentials,
+         name="get_cooking_essentials"),
+    path('get_home_care/', views.get_home_care,
+         name="get_home_care"),
+    path('filter_products/<int:id>/', views.get_filterd_product, name='filter_products')
 
 ]

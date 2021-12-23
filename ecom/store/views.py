@@ -117,9 +117,7 @@ def processOrder(request):
  
 def get_general_product(request):
     category_obj = Categories.objects.get(name_english='General Grocery')
-    print(' == == == Category Obj == == ===', category_obj)
     sub_category_obj = SubCategories.objects.filter(category=category_obj)
-    print('==========Sub CAtegory=============', sub_category_obj)
     context = {
         'sub_category_obj': sub_category_obj
     }
@@ -127,15 +125,34 @@ def get_general_product(request):
 
 
 def get_cooking_essentials(request):
-    cooking_obj = Categories.objects.get(name_english='Cooking Essentials')
-    print(' == == == Category Obj == == ===', cooking_obj)
+    cooking_obj = Categories.objects.get(name_english='Cooking Essential')
     cooking_obj_list = SubCategories.objects.filter(category=cooking_obj)
-    print('==========Sub CAtegory=============', cooking_obj_list)
     context = {
         'cooking_obj_list': cooking_obj_list
     }
     return render(request, 'store/main.html', context)
+
+
+def get_home_care(request):
+    home_care_obj = Categories.objects.get(
+        name_english='Home Care and Cleaning Utilities')
+    home_care_obj_list = SubCategories.objects.filter(category=home_care_obj)
+    context = {
+        'home_care_obj_list': home_care_obj_list
+    }
+    return render(request, 'store/main.html', context)
+
+
+
     
      
      
-     
+def get_filterd_product(request, id):
+    sub_obj = SubCategories.objects.get(id=id)
+    filter_product = Product.objects.filter(subcategory=sub_obj)
+    print('==========Filter Product=============', filter_product)
+    
+    context = {
+        'filter_product': filter_product
+    }
+    return render(request, 'store/main.html', context)

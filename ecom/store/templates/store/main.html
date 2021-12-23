@@ -1,9 +1,68 @@
 <!DOCTYPE html>
 {% load static %}
-
+{% with name=request.path %}  
 <html>
 
 <head>
+
+
+
+    <title>Ecom</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{% static 'front_assets/assets/images/icons/apple-touch-icon.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{% static 'front_assets/assets/images/icons/favicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{% static 'front_assets/assets/images/icons/favicon-16x16.png'%}">
+    <link rel="manifest" href="% static {'front_assets/assets/images/icons/site.html'%}">
+    <link rel="mask-icon" href="{% static 'front_assets/assets/images/icons/safari-pinned-tab.svg" color="#666666'%}">
+    <link rel="shortcut icon" href="{% static 'front_assets/assets/images/icons/favicon.ico'%}">
+
+    <link rel="stylesheet"
+        href="{% static 'front_assets/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'%}">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/plugins/owl-carousel/owl.carousel.css'%}">
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/plugins/magnific-popup/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/plugins/jquery.countdown.css'%}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/skins/skin-demo-2.css'%}">
+    <link rel="stylesheet" href="{% static 'front_assets/assets/css/demos/demo-2.css'%}">
+
+
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+
+        function getToken(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var csrftoken = getToken('csrftoken');
+    </script>
+
+</head>
+
+<body>
 
     <header class="header header-2 header-intro-clearance">
 
@@ -138,9 +197,10 @@
                         <div class="dropdown-menu">
                             <nav class="side-nav">
                                 <ul class="menu-vertical sf-arrows">
-                                    <li class="item-lead"><a href="{% url 'sub_categories_obj'%}">General Grocery</a></li>
-                                    <li class="item-lead"><a href="#">Cooking Essentials</a></li>
-                                    <li class="item-lead"><a href="#">Home care and Cleaning Utilities</a></li>
+                                    <li class="item-lead"><a href="{% url 'sub_categories_obj'%}">General Grocery</a>
+                                    </li>
+                                    <li class="item-lead"><a href="{% url 'get_cooking_essentials' %}">Cooking Essentials</a></li>
+                                    <li class="item-lead"><a href="{% url 'get_home_care' %}">Home care and Cleaning Utilities</a></li>
                                     <li class="item-lead"><a href="#">Dairy and Bekary</a></li>
                                     <li class="item-lead"><a href="#">Beverages</a></li>
                                     <li class="item-lead"><a href="#">Personal Care </a></li>
@@ -386,63 +446,6 @@
         </div><!-- End .header-bottom -->
     </header><!-- End .header -->
 
-    <title>Ecom</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="{% static 'front_assets/assets/images/icons/apple-touch-icon.png'%}">
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="{% static 'front_assets/assets/images/icons/favicon-32x32.png'%}">
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="{% static 'front_assets/assets/images/icons/favicon-16x16.png'%}">
-    <link rel="manifest" href="% static {'front_assets/assets/images/icons/site.html'%}">
-    <link rel="mask-icon" href="{% static 'front_assets/assets/images/icons/safari-pinned-tab.svg" color="#666666'%}">
-    <link rel="shortcut icon" href="{% static 'front_assets/assets/images/icons/favicon.ico'%}">
-
-    <link rel="stylesheet"
-        href="{% static 'front_assets/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'%}">
-    <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="{% static 'front_assets/assets/css/bootstrap.min.css'%}">
-    <link rel="stylesheet" href="{% static 'front_assets/assets/css/plugins/owl-carousel/owl.carousel.css'%}">
-    <link rel="stylesheet" href="{% static 'front_assets/assets/css/plugins/magnific-popup/magnific-popup.css'%}">
-    <link rel="stylesheet" href="{% static 'front_assets/assets/css/plugins/jquery.countdown.css'%}">
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="{% static 'front_assets/assets/css/style.css'%}">
-    <link rel="stylesheet" href="{% static 'front_assets/assets/css/skins/skin-demo-2.css'%}">
-    <link rel="stylesheet" href="{% static 'front_assets/assets/css/demos/demo-2.css'%}">
-
-
-    <script type="text/javascript">
-        var user = '{{request.user}}'
-
-        function getToken(name) {
-            var cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                var cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    var cookie = cookies[i].trim();
-                    // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
-        var csrftoken = getToken('csrftoken');
-    </script>
-
-</head>
-
-<body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="{% url 'store' %}">Ecom</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -471,83 +474,84 @@
         </div>
     </nav>
 
-    <div class="page-wrapper">
 
-        <main class="main">
-            <div class="intro-slider-container">
-                <div class="owl-carousel owl-simple owl-light owl-nav-inside" data-toggle="owl"
-                    data-owl-options='{"nav": false}'>
-                    <div class="intro-slide"
-                        style="background-image: url({% static 'front_assets/assets/images/slider/slide-1.jpg' %});">
-                        <div class="container intro-content">
-                            <h3 class="intro-subtitle">Cooking Essentials</h3><!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title">Find your product <br>by one click</h1><!-- End .intro-title -->
+    {% if name == '/' %}
+    {% include '../store/slider.html' %}
+    {% endif %}
 
-                        </div><!-- End .container intro-content -->
-                    </div><!-- End .intro-slide -->
+    
 
-                    <div class="intro-slide"
-                        style="background-image: url({% static 'front_assets/assets/images/slider/slide-2.jpg' %});">
-                        <div class="container intro-content">
-                            <h3 class="intro-subtitle">General Grocery</h3><!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title">All groceries <br>in one place </h1>
-
-
-                        </div><!-- End .container intro-content -->
-                    </div><!-- End .intro-slide -->
-
-                    <div class="intro-slide"
-                        style="background-image: url({% static 'front_assets/assets/images/slider/slide-3 .jpg' %});">
-                        <div class="container intro-content">
-                            <h3 class="intro-subtitle">Home Care and Cleaning Utilities</h3>
-                            <!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title">
-                                Home care and cleaning utilities <br>by one click</h1>
-                            {% comment %} <span class="text-primary">
-                                <sup class="text-white font-weight-light">from</sup><sup>$</sup>9,99
-                            </span> {% endcomment %}
-
-
-                            {% comment %} <a href="category.html" class="btn btn-primary">
-                                <span>Shop Now</span>
-                                <i class="icon-long-arrow-right"></i>
-                            </a> {% endcomment %}
-                        </div><!-- End .container intro-content -->
-                    </div><!-- End .intro-slide -->
-                </div><!-- End .owl-carousel owl-simple -->
-
-                <span class="slider-loader text-white"></span><!-- End .slider-loader -->
-            </div><!-- End .intro-slider-container -->
-        </main><!-- End .main -->
-    </div>
+    
 
     <div class="container">
-        <ul class="nav nav-pills nav-border-anim nav-big justify-content-center mb-3" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="products-featured-link" data-toggle="tab" href="#products-featured-tab"
-                    role="tab" aria-controls="products-featured-tab" aria-selected="true">Featured</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="products-sale-link" data-toggle="tab" href="#products-sale-tab" role="tab"
-                    aria-controls="products-sale-tab" aria-selected="false">On Sale</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="products-top-link" data-toggle="tab" href="#products-top-tab" role="tab"
-                    aria-controls="products-top-tab" aria-selected="false">Top Rated</a>
-            </li>
-        </ul>
-        <br>
+
         {% block content %}
+        <div class="row">
+            {% for cat_obj in sub_category_obj%}
+            <div class="col-lg-3">
+                <div class="box-element product text-center">
+                    <a href="{% url 'filter_products' cat_obj.id %}">
+                        <div class="icon"><img class="product-image" src="{{cat_obj.image.url}}"></div>
+                        <strong>{{ cat_obj.name_english }}</strong>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+              
+            {% comment %} For swhowing the subcategory name {% endcomment %}
 
-        {% for cat_obj in sub_category_obj%}
+            {% for cat_obj in cooking_obj_list%}
+            <div class="col-lg-3">
+                <div class="box-element product">
+                    <a href="{% url 'filter_products' cat_obj.id %}">
+                        <strong>{{ cat_obj.name_english }}</strong>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            
 
-        <h2>{{ cat_obj.name_english }}</h2>
+            
+            {% for cat_obj in home_care_obj_list%}
+            <div class="col-lg-3">
+                <div class="box-element product">
+                    <a href="{% url 'filter_products' cat_obj.id %}">
+                        <strong>{{ cat_obj.name_english }}</strong>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            
 
-        {% endfor %}
 
-
+        </div>
         {% endblock content %}
+
+        <div class="row">
+            {% for product in filter_product %}
+            <div class="col-6 col-md-4 col-lg-3 col-xl-5col">
+                <div class="product product-11 text-center">
+                    <figure class="product-media">
+                        <a>
+                                <img class="product-image" src="{{product.image.url}}">
+                        </a>
+                    </figure>
+
+                    <div class="product-body">
+                        <h3 class="product-title"><a>{{product.name}}</a></h3>
+                        <div class="product-price">৳ {{product.price|floatformat:2}}</div>
+                    </div>
+                    <div class="product-action">
+                        <a data-product={{product.id}} data-action="add" class="btn-product btn-cart add-btn update-cart"><span>add to cart</span></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
+
+
+
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -582,3 +586,4 @@
 </body>
 
 </html>
+{% endwith %}
