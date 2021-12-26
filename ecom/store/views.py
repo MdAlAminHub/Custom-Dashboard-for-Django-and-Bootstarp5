@@ -5,7 +5,21 @@ import datetime
 from .models import *
 
 
-
+# #Registration Controller View
+# def signup_view(request):
+#     if request.POST["password"] == request.POST["confirm_password"]:
+#          User.objects.create(
+#              user_name=request.POST["username"],
+#              user_name=request.POST["first_name"],
+#              user_name=request.POST["last_name"],
+#              password=request.POST["password"],
+#          )
+#          messages.success(request, "Registration Successful, Please login")
+#          return redirect("/")
+#     else:
+#          messages.error(request, "Password did not match")
+#          return redirect("/signup/")
+#     return render(request, "signup.html", {})
 
 def store(request):
     if request.user.is_authenticated:
