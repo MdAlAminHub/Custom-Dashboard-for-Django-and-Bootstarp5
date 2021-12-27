@@ -1,25 +1,48 @@
 import json
-from django.shortcuts import render
+from django.core.checks import messages
+from django.http.response import HttpResponse
+from django.shortcuts import redirect, render
 from django.http import JsonResponse
 import datetime
 from .models import *
+from django.contrib.auth.models import User, auth
 
 
-# #Registration Controller View
-# def signup_view(request):
-#     if request.POST["password"] == request.POST["confirm_password"]:
-#          User.objects.create(
-#              user_name=request.POST["username"],
-#              user_name=request.POST["first_name"],
-#              user_name=request.POST["last_name"],
-#              password=request.POST["password"],
-#          )
-#          messages.success(request, "Registration Successful, Please login")
-#          return redirect("/")
-#     else:
-#          messages.error(request, "Password did not match")
-#          return redirect("/signup/")
-#     return render(request, "signup.html", {})
+
+def signup_view(request):
+    if request.method == 'POST':
+        username = request.POST["username"],
+        first_name = request.POST["first_name"],
+        last_name = request.POST["last_name"],
+        password1 = request.POST["password1"],
+        password2 = request.POST["password2"]
+        
+        user = User.objects.create(username=username, first_name=first_name, last_name=last_name, password=password1)
+        user.save()
+        print('User Created')
+        customer = Customer.objects.create(user=user, name=username)
+        customer.save()
+        
+        return redirect('/')
+    return render(request, 'store/main.html')
+
+    print('Password not matching!')
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password1']
+        
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('login/')
+        messages.Info('Invalid credentials')
+        return redirect('/')
+    return render(request, 'store/main.html')
+            
+        
+     
 
 def store(request):
     if request.user.is_authenticated:
@@ -164,8 +187,6 @@ def get_home_care(request):
 def get_filterd_product(request, id):
     sub_obj = SubCategories.objects.get(id=id)
     filter_product = Product.objects.filter(subcategory=sub_obj)
-    print('==========Filter Product=============', filter_product)
-    
     context = {
         'filter_product': filter_product
     }
