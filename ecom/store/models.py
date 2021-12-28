@@ -16,7 +16,7 @@ class Product(models.Model):
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
     subcategory = models.ForeignKey(SubCategories, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True)
-    price = models.FloatField()
+    price = models.DecimalField( max_digits=7 , decimal_places=2)
     digital = models.BooleanField(default=False, null = True, blank = True)
     image = models.ImageField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -38,9 +38,17 @@ class Order(models.Model):
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False, null=True, blank=True)
     transaction_id = models.CharField(max_length=200, null=True)
+    
+    status_choices = (('Received', 'Received'),
+                      ('Scheduled', 'Scheduled'),
+                      ('Shipped', 'Shipped'),
+                      )
+    status = models.CharField(
+        max_length=100, choices=status_choices, default="In Progress")
+    
 
     def __str__(self, ):
-        return self.customer.name
+        return self.transaction_id
     
     @property
     def shipping(self):
@@ -89,5 +97,5 @@ class ShippingAddress(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     
     def __str__(self, ):
-        return self.address
+        return self.customer
     

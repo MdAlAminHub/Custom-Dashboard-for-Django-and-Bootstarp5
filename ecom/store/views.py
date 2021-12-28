@@ -6,6 +6,8 @@ from django.http import JsonResponse
 import datetime
 from .models import *
 from django.contrib.auth.models import User, auth
+from django.contrib.auth import logout
+
 
 
 
@@ -36,13 +38,16 @@ def login_view(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('login/')
+            return redirect('/')
         messages.Info('Invalid credentials')
         return redirect('/')
     return render(request, 'store/main.html')
             
-        
-     
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
+    
 
 def store(request):
     if request.user.is_authenticated:
